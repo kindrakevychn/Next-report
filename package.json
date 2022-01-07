@@ -1,6 +1,6 @@
 {
     "name": "@valurank/report",
-    "description": "Detailed report about page Valurank score.",
+    "description": "Detailed report about specific Valurank score.",
     "version": "0.1.0",
     "private": true,
     "author": {
