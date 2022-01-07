@@ -1,7 +1,5 @@
-# Put in this folder anything that you want to store locally
-gitignore
-
 node_modules
+.next
 dist
 out
 .vscode
