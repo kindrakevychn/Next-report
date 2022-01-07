@@ -15,7 +15,12 @@
     "bugs": {
         "url": "https://github.com/Valurank/report/issues"
     },
-    "scripts": {},
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
     "devEngines": {
         "node": ">=16.13.1",
         "npm": ">=8.3.0"
