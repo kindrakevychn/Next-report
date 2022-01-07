@@ -1,0 +1,9 @@
+# Put in this folder anything that you want to store locally
+gitignore
+
+node_modules
+dist
+out
+.vscode
+.cache
+*.log
