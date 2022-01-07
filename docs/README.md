@@ -1,0 +1,1 @@
+This folder contains documentation about project architecture. This may give you general idea what is happening under the hood. Some documentation may be outdated, but reflect developers feeling at a particular period of the project.
