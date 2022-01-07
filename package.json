@@ -1,0 +1,25 @@
+{
+    "name": "@valurank/report",
+    "description": "Detailed report about page Valurank score.",
+    "version": "0.1.0",
+    "private": true,
+    "author": {
+        "name": "Sergey Kuznetsov",
+        "url": "https://www.upwork.com/freelancers/~0103d6c24cace1b338"
+    },
+    "homepage": "https://github.com/Valurank/report/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Valurank/report.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Valurank/report/issues"
+    },
+    "scripts": {},
+    "devEngines": {
+        "node": ">=16.13.1",
+        "npm": ">=8.3.0"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}
