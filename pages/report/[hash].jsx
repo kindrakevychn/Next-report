@@ -3,6 +3,7 @@ import {
 } from 'next/router';
 import Layout from '../../components/layout';
 import ShareButtons from '../../components/share-buttons';
+import CopyText from '../../components/copy-text';
 
 import reportStyles from './report.module.css';
 import shareStyles from './share.module.css';
@@ -46,11 +47,16 @@ function Share({
             >
                 {'Share with'}
             </div>
-
             <ShareButtons
                 articleTitle={articleTitle}
                 score={score}
                 reportURL={reportURL}
+            />
+            <div
+                className={shareStyles.separator}
+            />
+            <CopyText
+                text={reportURL}
             />
         </div>
     );
