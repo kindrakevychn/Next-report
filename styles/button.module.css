@@ -1,0 +1,33 @@
+.button {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 1;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button,
+.button:hover {
+  transition: .15s linear;
+  transition-property: (
+    color,
+    background-color,
+    border-color,
+    opacity
+  );
+}
+
+.button:hover {
+  opacity: .85;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button-disabled {
+  pointer-events: none;
+}
