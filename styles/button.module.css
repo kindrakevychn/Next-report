@@ -1,6 +1,5 @@
 .button {
   color: inherit;
-  cursor: pointer;
   text-decoration: none;
   opacity: 1;
   border: none;
@@ -19,7 +18,11 @@
   .15s linear;
 }
 
-.button:hover {
+.button:not(.disabled) {
+  cursor: pointer;
+}
+
+.button:hover:not(.disabled) {
   opacity: .85;
 }
 
@@ -27,6 +30,7 @@
   outline: none;
 }
 
-.button-disabled {
+.disabled {
   pointer-events: none;
+  opacity: .4;
 }
