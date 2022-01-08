@@ -11,13 +11,12 @@
 
 .button,
 .button:hover {
-  transition: .15s linear;
-  transition-property: (
+  transition:
     color,
     background-color,
     border-color,
     opacity
-  );
+  .15s linear;
 }
 
 .button:hover {
