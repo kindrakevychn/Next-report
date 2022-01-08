@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container > * {
+  margin-right: 1.5rem;
+}
+
+.container > *:last-child {
+  margin-right: 0;
+}
+
+.action {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
