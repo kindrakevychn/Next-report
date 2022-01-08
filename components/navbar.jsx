@@ -5,7 +5,7 @@ import styles from './navbar.module.css';
 
 export default function Navbar() {
     return (
-        <div
+        <header
             className={styles.container}
         >
             <div>
@@ -28,6 +28,6 @@ export default function Navbar() {
                     {'About us'}
                 </a>
             </div>
-        </div>
+        </header>
     );
 }
