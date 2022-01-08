@@ -3,3 +3,21 @@
   font-weight: 500;
   color: #272833;
 }
+
+.share {
+  display: flex;
+  align-items: center;
+}
+
+.share > * {
+  margin-right: 1.5rem;
+}
+
+.share > *:last-child {
+  margin-right: 0;
+}
+
+.shareTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
