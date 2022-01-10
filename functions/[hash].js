@@ -15,33 +15,25 @@ export async function onRequestGet({request, env, params}) {
         return asset;
     }
 
-    const {hash} = params;
+    const reportData = await getReportData(params.hash)
     const rewriter = (
         new HTMLRewriter()
-        .onDocument(new ReportDataWriter(hash))
+        .onDocument(new ReportDataWriter(reportData))
+        .on('meta', new MetaRewriter(reportData))
     );
     const res = rewriter.transform(asset);
 
     return res;
 }
 
-class ReportDataWriter {
-    constructor(hash) {
-        this.hash = hash;
-    }
+async function getReportData(hash) {
+    // See `lib/valurank.js` for object structure.
+    const data = {
+        hash: hash,
+        score: random(0, 100)
+    };
 
-    async end(end) {
-        // See `lib/valurank.js` for object structure.
-        const data = {
-            hash: this.hash,
-            score: random(0, 100)
-        };
-
-        end.append(
-            `<script>var vlrnkReportData = ${JSON.stringify(data)};</script>`,
-            {html: true}
-        );
-    }
+    return data;
 }
 
 /**
@@ -49,4 +41,47 @@ class ReportDataWriter {
  */
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+class ReportDataWriter {
+    constructor(data) {
+        this.data = data;
+    }
+
+    end(end) {
+        end.append(
+            `<script>var vlrnkReportData = ${JSON.stringify(this.data)};</script>`,
+            {html: true}
+        );
+    }
+}
+
+class MetaRewriter {
+    constructor(reportData) {
+        this.data = reportData;
+    }
+
+    element(element) {
+        const want = [
+            'description',
+            'og:description',
+            'twitter:description'
+        ];
+        let name = element.getAttribute('name');
+
+        if (!name) {
+            name = element.getAttribute('property');
+        }
+
+        if (!want.includes(name)) {
+            return;
+        }
+
+        const description = `I ran @valurank on this article. It scored ${this.data.score}. Do you think this is correct?`;
+
+        element.setAttribute(
+            'content',
+            description
+        );
+    }
 }
