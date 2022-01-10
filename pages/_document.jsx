@@ -27,6 +27,10 @@ export default class MyDocument extends Document {
                         content={meta.description}
                     />
                     <meta
+                        name='keywords'
+                        content='valurank, report'
+                    />
+                    <meta
                         property='og:site_name'
                         content={meta.title}
                     />
