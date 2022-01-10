@@ -27,13 +27,11 @@ export default function Report() {
                 >
                     {'Detailed report'}
                 </div>
-
                 <Share
                     articleTitle={'Article Title'}
                     score={78}
                     reportURL={`https://valurank.com/report/${hash}`}
                 />
-
                 <div>
                     {`Valurank score for ${hash} is 0/100.`}
                 </div>
