@@ -1,20 +1,17 @@
-export async function onRequestGet(context) {
-    const originalURL = context.request.url;
-    const url = new URL(originalURL);
+export async function onRequestGet({request, env}) {
+    const url = new URL(request.url);
 
     // Let's treat such paths as static public files.
     if (url.pathname.includes('.')) {
-        return context.env.ASSETS.fetch(originalURL);
+        return env.ASSETS.fetch(request);
     }
 
-    const req = new Request(
-        new URL('/', context.request.url).toString(),
-        context.request
-    );
-    const asset = await context.env.ASSETS.fetch(req);
-    const contentType = asset.headers.get('Content-Type');
+    const assetURL = new URL('/', request.url).toString();
+    const assetReq = new Request(assetURL, request);
+    const asset = await env.ASSETS.fetch(assetReq);
+    const assetType = asset.headers.get('Content-Type');
 
-    if (!contentType.startsWith('text/html')) {
+    if (!assetType.startsWith('text/html')) {
         return asset;
     }
 
@@ -41,7 +38,7 @@ class ReportDataWriter {
         };
 
         end.append(
-            `<script>var vlrnkReportData = ${JSON.stringify(data)}</script>`,
+            `<script>var vlrnkReportData = ${JSON.stringify(data)};</script>`,
             {html: true}
         );
     }
