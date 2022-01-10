@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container > * {
+  margin-right: 1.5rem;
+}
+
+.container > *:last-child {
+  margin-right: 0;
+}
+
+.action {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.separator {
+  width: 1.25rem;
+  border-top: 1px solid rgba(28, 33, 51, .2);
+  transform: rotate(90deg);
+}

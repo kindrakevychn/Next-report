@@ -1,0 +1,17 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  padding: .95rem;
+  background-color: #F4F6FF;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.button:last-child {
+  margin-right: 0;
+}
