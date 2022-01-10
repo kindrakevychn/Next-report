@@ -18,7 +18,8 @@
     "scripts": {
         "dev": "next dev",
         "export": "next build && next export",
-        "lint": "next lint"
+        "lint": "next lint",
+        "start": "wrangler pages dev ./out"
     },
     "devEngines": {
         "node": ">=16.13.1",
