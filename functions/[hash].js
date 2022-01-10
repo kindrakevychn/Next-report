@@ -7,7 +7,11 @@ export async function onRequestGet(context) {
         return context.env.ASSETS.fetch(originalURL);
     }
 
-    const asset = await context.env.ASSETS.fetch(url.origin + '/');
+    const req = new Request(
+        new URL('/', context.request.url).toString(),
+        context.request
+    );
+    const asset = await context.env.ASSETS.fetch(req);
     const contentType = asset.headers.get('Content-Type');
 
     if (!contentType.startsWith('text/html')) {
