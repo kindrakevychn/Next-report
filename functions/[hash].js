@@ -19,6 +19,7 @@ export async function onRequestGet({request, env, params}) {
     const rewriter = (
         new HTMLRewriter()
         .onDocument(new ReportDataWriter(reportData))
+        .on('meta', new MetaRewriter(reportData))
     );
     const res = rewriter.transform(asset);
 
@@ -51,6 +52,36 @@ class ReportDataWriter {
         end.append(
             `<script>var vlrnkReportData = ${JSON.stringify(this.data)};</script>`,
             {html: true}
+        );
+    }
+}
+
+class MetaRewriter {
+    constructor(reportData) {
+        this.data = reportData;
+    }
+
+    element(element) {
+        const want = [
+            'description',
+            'og:description',
+            'twitter:description'
+        ];
+        let name = element.getAttribute('name');
+
+        if (!name) {
+            name = element.getAttribute('property');
+        }
+
+        if (!want.includes(name)) {
+            return;
+        }
+
+        const description = `I ran @valurank on this article. It scored ${this.data.score}. Do you think this is correct?`;
+
+        element.setAttribute(
+            'content',
+            description
         );
     }
 }
