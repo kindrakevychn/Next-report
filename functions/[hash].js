@@ -1,4 +1,4 @@
-export async function onRequestGet({request, env}) {
+export async function onRequestGet({request, env, params}) {
     const url = new URL(request.url);
 
     // Let's treat such paths as static public files.
@@ -15,7 +15,7 @@ export async function onRequestGet({request, env}) {
         return asset;
     }
 
-    const hash = url.pathname.replace('/', '');
+    const {hash} = params;
     const rewriter = (
         new HTMLRewriter()
         .onDocument(new ReportDataWriter(hash))
