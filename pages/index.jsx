@@ -1,17 +1,32 @@
-import Head from 'next/head';
 import {
-    useRouter
-} from 'next/router';
+    useState,
+    useEffect
+} from 'react';
+import Head from 'next/head';
 import Layout from '../components/layout';
 import ShareButtons from '../components/share-buttons';
 import CopyText from '../components/copy-text';
+import Error from '../components/error';
+import {
+    getReportData
+} from '../lib/valurank';
 
 import reportStyles from './report.module.css';
 import shareStyles from './share.module.css';
 
-export default function Report() {
-    const router = useRouter();
-    const {hash} = router.query;
+export default function Index() {
+    const [error, setError] = useState('');
+    const [reportData, setReportData] = useState(null);
+
+    useEffect(() => {
+        getReportData()
+        .then((data) => {
+            setReportData(data);
+        })
+        .catch((err) => {
+            setError(String(err));
+        });
+    }, []);
 
     return (
         <>
@@ -22,20 +37,44 @@ export default function Report() {
             </Head>
 
             <Layout>
-                <div
-                    className={reportStyles.title}
-                >
-                    {'Detailed report'}
-                </div>
-                <Share
-                    articleTitle={'Article Title'}
-                    score={78}
-                    reportURL={`https://valurank.com/report/${hash}`}
-                />
-                <div>
-                    {`Valurank score for ${hash} is 0/100.`}
-                </div>
+                {
+                    error &&
+                    <Error
+                        message={error}
+                    />
+                }
+                {
+                    reportData &&
+                    <Report
+                        data={reportData}
+                    />
+                }
             </Layout>
+        </>
+    );
+}
+
+function Report({data}) {
+    const {
+        hash,
+        score
+    } = data;
+
+    return (
+        <>
+            <div
+                className={reportStyles.title}
+            >
+                {'Detailed report'}
+            </div>
+            <Share
+                articleTitle={'Article Title'}
+                score={score}
+                reportURL={`https://valurank.com/report/${hash}`}
+            />
+            <div>
+                {`Valurank score for ${hash} is ${score}/100.`}
+            </div>
         </>
     );
 }
