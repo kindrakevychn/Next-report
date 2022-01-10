@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
     useRouter
 } from 'next/router';
@@ -13,23 +14,31 @@ export default function Report() {
     const {hash} = router.query;
 
     return (
-        <Layout>
-            <div
-                className={reportStyles.title}
-            >
-                {'Detailed report'}
-            </div>
+        <>
+            <Head>
+                <title>
+                    {'Valurank Report'}
+                </title>
+            </Head>
 
-            <Share
-                articleTitle={'Article Title'}
-                score={78}
-                reportURL={`https://valurank.com/report/${hash}`}
-            />
+            <Layout>
+                <div
+                    className={reportStyles.title}
+                >
+                    {'Detailed report'}
+                </div>
 
-            <div>
-                {`Valurank score for ${hash} is 0/100.`}
-            </div>
-        </Layout>
+                <Share
+                    articleTitle={'Article Title'}
+                    score={78}
+                    reportURL={`https://valurank.com/report/${hash}`}
+                />
+
+                <div>
+                    {`Valurank score for ${hash} is 0/100.`}
+                </div>
+            </Layout>
+        </>
     );
 }
 
