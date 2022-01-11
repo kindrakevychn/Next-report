@@ -15,6 +15,12 @@ export default function CopyText({text}) {
         copyTextToClipboard(text);
     }, [text]);
 
+    let displayText = text;
+
+    if (displayText.length > 50) {
+        displayText = `${displayText.substring(0, 6)}...`;
+    }
+
     return (
         <div
             className={styles.container}
@@ -22,7 +28,7 @@ export default function CopyText({text}) {
             <div
                 className={styles.text}
             >
-                {text}
+                {displayText}
             </div>
 
             <div
