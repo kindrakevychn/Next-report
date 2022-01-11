@@ -21,3 +21,41 @@
   border-top: 1px solid rgba(28, 33, 51, .2);
   transform: rotate(90deg);
 }
+
+@media only screen and (max-width: 425px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container > * {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .container > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .separator {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .container > * {
+    margin-bottom: 1.5rem;
+  }
+
+  .container > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .separator {
+    display: none;
+  }
+}
