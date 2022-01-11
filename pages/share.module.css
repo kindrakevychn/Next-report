@@ -41,3 +41,21 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .container > * {
+    margin-bottom: 1.5rem;
+  }
+
+  .container > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .separator {
+    display: none;
+  }
+}
