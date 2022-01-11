@@ -14,3 +14,9 @@
   font-size: .9rem;
   word-break: break-all;
 }
+
+@media only screen and (max-width: 425px) {
+  .container {
+    width: 100%;
+  }
+}
