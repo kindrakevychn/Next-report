@@ -1,0 +1,56 @@
+.container {
+  width: 100%;
+  border-radius: 5px;
+  overflow: auto;
+  filter: drop-shadow(4px 4px 15px rgba(178, 199, 188, .15));
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.row:first-child {
+  background-color: #F6F8FC;
+  box-shadow: inset 0px -1px 0px #E7E7ED;
+}
+
+.row:first-child > .data {
+  color: #1C2133;
+  font-weight: 500;
+  padding-top: .8rem;
+  padding-bottom: .8rem;
+}
+
+.data {
+  font-size: 1.125rem;
+  color: #272833;
+  padding: 1.1rem 1rem;
+  text-align: left;
+}
+
+.detected > .data:nth-child(2) > span {
+  display: flex;
+  justify-content: center;
+  width: 8rem;
+  font-size: .875rem;
+  font-weight: 500;
+  color: #00BC4B;
+  padding: .55rem 0rem;
+  background: #EFFFE5;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.detectedYes > .data:nth-child(2) > span {
+  color: #FF0000;
+  background: #FFE6E6;
+}
+
+.score > .data:nth-child(2) {
+  color: var(--color);
+  font-weight: 700;
+  font-size: .875rem;
+  text-transform: uppercase;
+}

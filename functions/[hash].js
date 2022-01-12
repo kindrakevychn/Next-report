@@ -38,7 +38,24 @@ async function getReportData(hash) {
     // See `lib/valurank.js` for object structure.
     const data = {
         hash: hash,
-        score: random(0, 100)
+        score: random(0, 100),
+        meta: {
+            outsideLinks: [
+                'https://github.com',
+                'https://google.com',
+                'https://foo.bar/with-some-very-long-pathname'
+            ],
+            isClickbait: true,
+            clickbaitElements: 3,
+            contentCoherence: 58,
+            contentCoherenceMax: 100,
+            isPoliticalBiases: true,
+            politicalBiasesElements: 5,
+            isInsultingSpeech: true,
+            isRacialIntolerance: false,
+            haveURLMedia: true,
+            urlMediaCount: 3
+        }
     };
 
     return data;
