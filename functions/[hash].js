@@ -25,6 +25,12 @@ export async function onRequestGet({request, env, params, next}) {
     );
     const res = rewriter.transform(asset);
 
+    // Because we returning completely new asset, we need to remove
+    // cache headers of original `asset` (which is always static).
+    res.headers.delete('ETag');
+    res.headers.delete('Cache-Control');
+    res.headers.append('Cache-Control', 'public, max-age=30, must-revalidate');
+
     return res;
 }
 
