@@ -7,13 +7,10 @@ export async function onRequestGet({request, env, params, next}) {
     }
 
     const assetURL = new URL('/', request.url).toString();
-    const assetReq = new Request(assetURL, request);
+    const assetReq = new Request(assetURL, {
+        cf: request.cf // https://github.com/cloudflare/wrangler2/issues/165#issuecomment-1010840734
+    });
     const asset = await env.ASSETS.fetch(assetReq);
-
-    if (asset.status === 304) {
-        return asset;
-    }
-
     const assetType = asset.headers.get('Content-Type');
 
     if (!assetType || !assetType.startsWith('text/html')) {
