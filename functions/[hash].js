@@ -1,18 +1,20 @@
-export async function onRequestGet({request, env, params}) {
+export async function onRequestGet({request, env, params, next}) {
     const url = new URL(request.url);
 
     // Let's treat such paths as static public files.
     if (url.pathname.includes('.')) {
-        return env.ASSETS.fetch(request);
+        return next();
     }
 
     const assetURL = new URL('/', request.url).toString();
-    const assetReq = new Request(assetURL, request);
+    const assetReq = new Request(assetURL, {
+        cf: request.cf // https://github.com/cloudflare/wrangler2/issues/165#issuecomment-1010840734
+    });
     const asset = await env.ASSETS.fetch(assetReq);
     const assetType = asset.headers.get('Content-Type');
 
-    if (!assetType.startsWith('text/html')) {
-        return asset;
+    if (!assetType || !assetType.startsWith('text/html')) {
+        return next();
     }
 
     const reportData = await getReportData(params.hash)
@@ -22,6 +24,12 @@ export async function onRequestGet({request, env, params}) {
         .on('meta', new MetaRewriter(reportData))
     );
     const res = rewriter.transform(asset);
+
+    // Because we returning completely new asset, we need to remove
+    // cache headers of original `asset` (which is always static).
+    res.headers.delete('ETag');
+    res.headers.delete('Cache-Control');
+    res.headers.append('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
 
     return res;
 }
