@@ -1,9 +1,9 @@
-export async function onRequestGet({request, env, params}) {
+export async function onRequestGet({request, env, params, next}) {
     const url = new URL(request.url);
 
     // Let's treat such paths as static public files.
     if (url.pathname.includes('.')) {
-        return env.ASSETS.fetch(request);
+        return next();
     }
 
     const assetURL = new URL('/', request.url).toString();
@@ -12,7 +12,7 @@ export async function onRequestGet({request, env, params}) {
     const assetType = asset.headers.get('Content-Type');
 
     if (!assetType.startsWith('text/html')) {
-        return asset;
+        return next();
     }
 
     const reportData = await getReportData(params.hash)
