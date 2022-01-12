@@ -1,7 +1,7 @@
 import styles from './score.module.css';
 
 export default function Score({score}) {
-    let status = '';
+    let status = scoreToStatus(score);
     let title = '';
 
     // Width of text is not persistent, but we need element width
@@ -11,7 +11,6 @@ export default function Score({score}) {
     let statusWidth = 0;
 
     if (score < 35) {
-        status = "Bad";
         statusWidth = 0.9;
         title = (
             `"Bad" means our model analyzed this article and found that it\n` +
@@ -23,7 +22,6 @@ export default function Score({score}) {
             "degree (based on text alone)."
         );
     } else if (score < 65) {
-        status = "Mediocre";
         statusWidth = 2.05;
         title = (
             `"Mediocre" means our model analyzed the article and found that it\n` +
@@ -33,7 +31,6 @@ export default function Score({score}) {
             "and are often seen in some of the subtler propaganda campaigns."
         );
     } else if (score < 85) {
-        status = "Good";
         statusWidth = 1.25;
         title = (
             `"Good" means our model analyzed the article's text and found that it\n` +
@@ -45,7 +42,6 @@ export default function Score({score}) {
             "Scores in this range are typical for editorials or opinion articles."
         );
     } else {
-        status = "Great";
         statusWidth = 1.4;
         title = (
             `"Great" means our model analyzed the article's text and found that it\n` +
@@ -55,19 +51,7 @@ export default function Score({score}) {
         );
     }
 
-    let sliderColor = '';
-
-    if (score < 20) {
-        sliderColor = '#EE5339';
-    } else if (score < 40) {
-        sliderColor = '#F38E3A';
-    } else if (score < 60) {
-        sliderColor = '#F6D243';
-    } else if (score < 80) {
-        sliderColor = '#CDD649';
-    } else {
-        sliderColor = '#5BAE50';
-    }
+    let sliderColor = scoreToColor(score);
 
     const containerStyle = {
         '--score': score,
@@ -136,6 +120,32 @@ export default function Score({score}) {
             </div>
         </div>
     );
+}
+
+export function scoreToStatus(score) {
+    if (score < 35) {
+        return 'Bad';
+    } else if (score < 65) {
+        return 'Mediocre';
+    } else if (score < 85) {
+        return 'Good';
+    } else {
+        return 'Great';
+    }
+}
+
+export function scoreToColor(score) {
+    if (score < 20) {
+        return '#EE5339';
+    } else if (score < 40) {
+        return '#F38E3A';
+    } else if (score < 60) {
+        return '#F6D243';
+    } else if (score < 80) {
+        return '#CDD649';
+    } else {
+        return '#5BAE50';
+    }
 }
 
 function ScaleIcon() {
