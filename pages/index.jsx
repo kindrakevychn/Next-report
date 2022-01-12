@@ -91,51 +91,63 @@ function Report({data}) {
                 score={score}
                 reportURL={`https://valurank.com/report/${hash}`}
             />
-            <Score
-                score={score}
-            />
-            <List
-                title={'Links to outside resourses'}
-                data={outsideLinks}
-                isLink={true}
-            />
-            <Indicators>
-                <DetectedIndicator
-                    title={'Links to outside resourses'}
-                    detected={!!outsideLinks.length}
-                    count={outsideLinks.length}
-                />
-                <DetectedIndicator
-                    title={'Clickbait'}
-                    detected={isClickbait}
-                    count={clickbaitElements}
-                />
-                <ScoreIndicator
-                    title={'Content coherence'}
-                    score={contentCoherence}
-                    max={contentCoherenceMax}
-                />
-                <DetectedIndicator
-                    title={'Political biases'}
-                    detected={isPoliticalBiases}
-                    count={politicalBiasesElements}
-                />
-                <DetectedIndicator
-                    title={'Insulting speech'}
-                    detected={isInsultingSpeech}
-                    count={0}
-                />
-                <DetectedIndicator
-                    title={'Racial intolerance'}
-                    detected={isRacialIntolerance}
-                    count={0}
-                />
-                <DetectedIndicator
-                    title={'URL media'}
-                    detected={haveURLMedia}
-                    count={urlMediaCount}
-                />
-            </Indicators>
+            <div
+                className={reportStyles.row2}
+            >
+                <div
+                    className={reportStyles.col}
+                >
+                    <Indicators>
+                        <DetectedIndicator
+                            title={'Links to outside resourses'}
+                            detected={!!outsideLinks.length}
+                            count={outsideLinks.length}
+                        />
+                        <DetectedIndicator
+                            title={'Clickbait'}
+                            detected={isClickbait}
+                            count={clickbaitElements}
+                        />
+                        <ScoreIndicator
+                            title={'Content coherence'}
+                            score={contentCoherence}
+                            max={contentCoherenceMax}
+                        />
+                        <DetectedIndicator
+                            title={'Political biases'}
+                            detected={isPoliticalBiases}
+                            count={politicalBiasesElements}
+                        />
+                        <DetectedIndicator
+                            title={'Insulting speech'}
+                            detected={isInsultingSpeech}
+                            count={0}
+                        />
+                        <DetectedIndicator
+                            title={'Racial intolerance'}
+                            detected={isRacialIntolerance}
+                            count={0}
+                        />
+                        <DetectedIndicator
+                            title={'URL media'}
+                            detected={haveURLMedia}
+                            count={urlMediaCount}
+                        />
+                    </Indicators>
+                </div>
+                <div
+                    className={reportStyles.col}
+                >
+                    <Score
+                        score={score}
+                    />
+                    <List
+                        title={'Links to outside resourses'}
+                        data={outsideLinks}
+                        isLink={true}
+                    />
+                </div>
+            </div>
         </>
     );
 }

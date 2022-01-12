@@ -4,3 +4,34 @@
   color: #272833;
   margin-bottom: 1.7rem;
 }
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.row2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+}
+
+.row2 > *:nth-child(1) {
+  width: 70%;
+}
+
+.row2 > *:nth-child(2) {
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .row2 {
+    flex-wrap: wrap;
+  }
+
+  .row2 > *:nth-child(1) {
+    width: 100%;
+  }
+}
