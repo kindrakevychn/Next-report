@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  border-radius: 5px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(4px 4px 15px rgba(178, 199, 188, .15));
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  background-color: #F6F8FC;
+  box-shadow: inset 0px -1px 0px #E7E7ED;
+  padding: .65rem .75rem;
+}
+
+.items {
+  font-size: 1rem;
+  color: #272833;
+  background-color: white;
+  padding: 1.25rem 1rem;
+}
+
+.item {
+  margin-bottom: .5rem;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
