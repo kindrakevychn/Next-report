@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import ShareButtons from '../components/share-buttons';
 import CopyText from '../components/copy-text';
 import Error from '../components/error';
+import List from '../components/list';
 import {
     getReportData
 } from '../lib/valurank';
@@ -60,6 +61,9 @@ function Report({data}) {
         hash,
         score
     } = data;
+    const {
+        outsideLinks
+    } = data.meta;
 
     return (
         <>
@@ -75,6 +79,11 @@ function Report({data}) {
             />
             <Score
                 score={score}
+            />
+            <List
+                title={'Links to outside resourses'}
+                data={outsideLinks}
+                isLink={true}
             />
         </>
     );
