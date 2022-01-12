@@ -9,6 +9,11 @@ export async function onRequestGet({request, env, params, next}) {
     const assetURL = new URL('/', request.url).toString();
     const assetReq = new Request(assetURL, request);
     const asset = await env.ASSETS.fetch(assetReq);
+
+    if (asset.status === 304) {
+        return asset;
+    }
+
     const assetType = asset.headers.get('Content-Type');
 
     if (!assetType || !assetType.startsWith('text/html')) {
