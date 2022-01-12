@@ -9,6 +9,10 @@ import CopyText from '../components/copy-text';
 import Score from '../components/score';
 import Error from '../components/error';
 import List from '../components/list';
+import Indicators, {
+    DetectedIndicator,
+    ScoreIndicator
+} from '../components/indicators';
 import {
     getReportData
 } from '../lib/valurank';
@@ -62,7 +66,17 @@ function Report({data}) {
         score
     } = data;
     const {
-        outsideLinks
+        outsideLinks,
+        isClickbait,
+        clickbaitElements,
+        contentCoherence,
+        contentCoherenceMax,
+        isPoliticalBiases,
+        politicalBiasesElements,
+        isInsultingSpeech,
+        isRacialIntolerance,
+        haveURLMedia,
+        urlMediaCount
     } = data.meta;
 
     return (
@@ -85,6 +99,43 @@ function Report({data}) {
                 data={outsideLinks}
                 isLink={true}
             />
+            <Indicators>
+                <DetectedIndicator
+                    title={'Links to outside resourses'}
+                    detected={!!outsideLinks.length}
+                    count={outsideLinks.length}
+                />
+                <DetectedIndicator
+                    title={'Clickbait'}
+                    detected={isClickbait}
+                    count={clickbaitElements}
+                />
+                <ScoreIndicator
+                    title={'Content coherence'}
+                    score={contentCoherence}
+                    max={contentCoherenceMax}
+                />
+                <DetectedIndicator
+                    title={'Political biases'}
+                    detected={isPoliticalBiases}
+                    count={politicalBiasesElements}
+                />
+                <DetectedIndicator
+                    title={'Insulting speech'}
+                    detected={isInsultingSpeech}
+                    count={0}
+                />
+                <DetectedIndicator
+                    title={'Racial intolerance'}
+                    detected={isRacialIntolerance}
+                    count={0}
+                />
+                <DetectedIndicator
+                    title={'URL media'}
+                    detected={haveURLMedia}
+                    count={urlMediaCount}
+                />
+            </Indicators>
         </>
     );
 }
