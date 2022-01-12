@@ -11,7 +11,7 @@ export async function onRequestGet({request, env, params, next}) {
     const asset = await env.ASSETS.fetch(assetReq);
     const assetType = asset.headers.get('Content-Type');
 
-    if (!assetType.startsWith('text/html')) {
+    if (!assetType || !assetType.startsWith('text/html')) {
         return next();
     }
 
