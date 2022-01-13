@@ -87,6 +87,11 @@ class MetaRewriter {
     }
 
     element(element) {
+        this.rewriteDescription(element);
+        this.rewriteImage(element);
+    }
+
+    rewriteDescription(element) {
         const want = [
             'description',
             'og:description',
@@ -108,5 +113,25 @@ class MetaRewriter {
             'content',
             description
         );
+    }
+
+    rewriteImage(element) {
+        const want = [
+            'og:image',
+            'twitter:image'
+        ];
+        let name = element.getAttribute('name');
+
+        if (!name) {
+            name = element.getAttribute('property');
+        }
+
+        if (!want.includes(name)) {
+            return;
+        }
+
+        const url = `https://report-3a3.pages.dev/og/${this.data.score}.jpg`;
+
+        element.setAttribute('content', url);
     }
 }

@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
         const meta = {
             title: 'Valurank Report',
             description: 'Getting information in order.',
-            image: 'https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png'
+            image: ''
         };
 
         return (
