@@ -66,7 +66,8 @@ function Report({data}) {
     const {
         id,
         score,
-        article
+        article,
+        meta
     } = data;
     const {
         outsideLinks,
@@ -80,7 +81,7 @@ function Report({data}) {
         isRacialIntolerance,
         haveURLMedia,
         urlMediaCount
-    } = data.meta;
+    } = meta || {};
 
     return (
         <>
@@ -100,41 +101,62 @@ function Report({data}) {
                     className={reportStyles.col}
                 >
                     <Indicators>
-                        <DetectedIndicator
-                            title={'Links to outside resourses'}
-                            detected={!!outsideLinks.length}
-                            count={outsideLinks.length}
-                        />
-                        <DetectedIndicator
-                            title={'Clickbait'}
-                            detected={isClickbait}
-                            count={clickbaitElements}
-                        />
-                        <ScoreIndicator
-                            title={'Content coherence'}
-                            score={contentCoherence}
-                            max={contentCoherenceMax}
-                        />
-                        <DetectedIndicator
-                            title={'Political biases'}
-                            detected={isPoliticalBiases}
-                            count={politicalBiasesElements}
-                        />
-                        <DetectedIndicator
-                            title={'Insulting speech'}
-                            detected={isInsultingSpeech}
-                            count={0}
-                        />
-                        <DetectedIndicator
-                            title={'Racial intolerance'}
-                            detected={isRacialIntolerance}
-                            count={0}
-                        />
-                        <DetectedIndicator
-                            title={'URL media'}
-                            detected={haveURLMedia}
-                            count={urlMediaCount}
-                        />
+                        {
+                            (outsideLinks != null) &&
+                            <DetectedIndicator
+                                title={'Links to outside resourses'}
+                                detected={!!outsideLinks.length}
+                                count={outsideLinks.length}
+                            />
+                        }
+                        {
+                            (isClickbait != null) &&
+                            <DetectedIndicator
+                                title={'Clickbait'}
+                                detected={isClickbait}
+                                count={clickbaitElements}
+                            />
+                        }
+                        {
+                            (contentCoherence != null) &&
+                            <ScoreIndicator
+                                title={'Content coherence'}
+                                score={contentCoherence}
+                                max={contentCoherenceMax}
+                            />
+                        }
+                        {
+                            (isPoliticalBiases != null) &&
+                            <DetectedIndicator
+                                title={'Political biases'}
+                                detected={isPoliticalBiases}
+                                count={politicalBiasesElements}
+                            />
+                        }
+                        {
+                            (isInsultingSpeech != null) &&
+                            <DetectedIndicator
+                                title={'Insulting speech'}
+                                detected={isInsultingSpeech}
+                                count={0}
+                            />
+                        }
+                        {
+                            (isRacialIntolerance != null) &&
+                            <DetectedIndicator
+                                title={'Racial intolerance'}
+                                detected={isRacialIntolerance}
+                                count={0}
+                            />
+                        }
+                        {
+                            (haveURLMedia != null) &&
+                            <DetectedIndicator
+                                title={'URL media'}
+                                detected={haveURLMedia}
+                                count={urlMediaCount}
+                            />
+                        }
                     </Indicators>
                 </div>
                 <div
@@ -143,11 +165,14 @@ function Report({data}) {
                     <Score
                         score={score}
                     />
-                    <List
-                        title={'Links to outside resourses'}
-                        data={outsideLinks}
-                        isLink={true}
-                    />
+                    {
+                        (outsideLinks && outsideLinks.length) &&
+                        <List
+                            title={'Links to outside resourses'}
+                            data={outsideLinks}
+                            isLink={true}
+                        />
+                    }
                 </div>
             </div>
             <div
