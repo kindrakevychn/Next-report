@@ -88,7 +88,7 @@ function Report({data}) {
                 articleURL={article.url}
             />
             <Share
-                articleTitle={'Article Title'}
+                articleTitle={article.title}
                 score={score}
                 reportURL={`https://valurank.com/report/${hash}`}
             />
