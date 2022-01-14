@@ -17,6 +17,7 @@ import {
     getReportData
 } from '../lib/valurank';
 
+import buttonStyles from '../styles/button.module.css';
 import reportStyles from './report.module.css';
 import shareStyles from './share.module.css';
 
@@ -63,7 +64,8 @@ export default function Index() {
 function Report({data}) {
     const {
         hash,
-        score
+        score,
+        article
     } = data;
     const {
         outsideLinks,
@@ -81,13 +83,12 @@ function Report({data}) {
 
     return (
         <>
-            <div
-                className={reportStyles.title}
-            >
-                {'Detailed report'}
-            </div>
+            <Title
+                articleTitle={article.title}
+                articleURL={article.url}
+            />
             <Share
-                articleTitle={'Article Title'}
+                articleTitle={article.title}
                 score={score}
                 reportURL={`https://valurank.com/report/${hash}`}
             />
@@ -149,6 +150,47 @@ function Report({data}) {
                 </div>
             </div>
         </>
+    );
+}
+
+function Title({
+    articleTitle,
+    articleURL
+}) {
+    if (articleTitle && articleTitle.length > 400) {
+        articleTitle = articleTitle.substring(0, 400) + "...";
+    }
+
+    return (
+        <div
+            className={reportStyles.title}
+        >
+            {'Detailed report'}
+            {
+                articleTitle &&
+                <>
+                    &nbsp;
+                    {'on'}
+                    &nbsp;
+                    <span
+                        className={reportStyles.articleTitle}
+                    >
+                        {
+                            articleURL ?
+                            <a
+                                className={buttonStyles.button}
+                                href={articleURL}
+                                target={'_blank'}
+                                rel={'noreferrer noopener'}
+                            >
+                                {`"${articleTitle}"`}
+                            </a> :
+                            `"${articleTitle}"`
+                        }
+                    </span>
+                </>
+            }
+        </div>
     );
 }
 

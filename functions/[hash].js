@@ -39,10 +39,14 @@ async function getReportData(hash) {
     const data = {
         hash: hash,
         score: random(0, 100),
+        article: {
+            title: 'A few bytes here, a few there, pretty soon you’re talking real memory',
+            url: 'https://dave.cheney.net/2021/01/05/a-few-bytes-here-a-few-there-pretty-soon-youre-talking-real-memory'
+        },
         meta: {
             outsideLinks: [
-                'https://github.com',
-                'https://google.com',
+                'https://github.com/golang/go/issues/23676',
+                'https://golang.org/doc/go1.15#runtime',
                 'https://foo.bar/with-some-very-long-pathname'
             ],
             isClickbait: true,
