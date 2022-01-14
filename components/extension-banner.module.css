@@ -1,0 +1,23 @@
+.container {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.icons {
+  margin-top: .75rem;
+}
+
+.icon {
+  width: 3rem;
+  height: auto;
+}
+
+.icon,
+.icon:hover {
+  transition: transform .15s linear;
+}
+
+.chrome:hover {
+  transform: rotate(360deg);
+}

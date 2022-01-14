@@ -9,6 +9,7 @@ import CopyText from '../components/copy-text';
 import Score from '../components/score';
 import Error from '../components/error';
 import List from '../components/list';
+import ExtensionBanner from '../components/extension-banner';
 import Indicators, {
     DetectedIndicator,
     ScoreIndicator
@@ -149,6 +150,10 @@ function Report({data}) {
                     />
                 </div>
             </div>
+            <div
+                className={reportStyles.bannerSeparator}
+            />
+            <ExtensionBanner />
         </>
     );
 }
