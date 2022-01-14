@@ -70,7 +70,7 @@ export default function Score({score}) {
                 <div
                     className={styles.title}
                 >
-                    {'Valurank'}
+                    {'Score'}
                 </div>
 
                 <div
