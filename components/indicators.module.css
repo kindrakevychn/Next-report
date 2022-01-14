@@ -11,12 +11,12 @@
   background-color: white;
 }
 
-.row:first-child {
+.head {
   background-color: #F6F8FC;
   box-shadow: inset 0px -1px 0px #E7E7ED;
 }
 
-.row:first-child > .data {
+.head .data {
   color: #1C2133;
   font-weight: 500;
   padding-top: .8rem;

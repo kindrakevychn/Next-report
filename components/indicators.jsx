@@ -14,8 +14,14 @@ export default function Indicators({children}) {
             <table
                 className={styles.table}
             >
-                <Head />
-                {children}
+                <thead
+                    className={styles.head}
+                >
+                    <Head />
+                </thead>
+                <tbody>
+                    {children}
+                </tbody>
             </table>
         </div>
     );
