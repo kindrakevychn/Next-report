@@ -26,6 +26,12 @@
   flex-grow: 1;
 }
 
+.bannerSeparator {
+  border-top: 1px solid rgba(28, 33, 51, .2);
+  width: 20%;
+  margin: 1.7rem auto;
+}
+
 @media only screen and (max-width: 425px) {
   .articleTitle {
     display: block;
