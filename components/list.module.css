@@ -20,6 +20,8 @@
   color: #272833;
   background-color: white;
   padding: 1.25rem 1rem;
+  max-height: 10rem;
+  overflow: auto;
 }
 
 .item {
