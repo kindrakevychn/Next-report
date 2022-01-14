@@ -63,7 +63,7 @@ export default function Index() {
 
 function Report({data}) {
     const {
-        hash,
+        id,
         score,
         article
     } = data;
@@ -90,7 +90,7 @@ function Report({data}) {
             <Share
                 articleTitle={article.title}
                 score={score}
-                reportURL={`https://valurank.com/report/${hash}`}
+                reportURL={`https://valurank.com/report/${id}`}
             />
             <div
                 className={reportStyles.row2}

@@ -37,7 +37,7 @@ export async function onRequestGet({request, env, params, next}) {
 async function getReportData(hash) {
     // See `lib/valurank.js` for object structure.
     const data = {
-        hash: hash,
+        id: hash,
         score: random(0, 100),
         article: {
             title: 'A few bytes here, a few there, pretty soon you’re talking real memory',
