@@ -39,6 +39,10 @@ async function getReportData(hash) {
     const data = {
         hash: hash,
         score: random(0, 100),
+        article: {
+            title: 'A few bytes here, a few there, pretty soon you’re talking real memory',
+            url: 'https://dave.cheney.net/2021/01/05/a-few-bytes-here-a-few-there-pretty-soon-youre-talking-real-memory'
+        },
         meta: {
             outsideLinks: [
                 'https://github.com',
