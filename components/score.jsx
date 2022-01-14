@@ -114,7 +114,7 @@ export default function Score({score}) {
                         {'Bad'}
                     </span>
                     <span>
-                        {'Great'}
+                        {'Perfect'}
                     </span>
                 </div>
             </div>
