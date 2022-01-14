@@ -63,24 +63,17 @@ export default function Index() {
 }
 
 function Report({data}) {
-    const {
+    let {
         id,
         score,
-        article
+        article,
+        meta
     } = data;
-    const {
-        outsideLinks,
-        isClickbait,
-        clickbaitElements,
-        contentCoherence,
-        contentCoherenceMax,
-        isPoliticalBiases,
-        politicalBiasesElements,
-        isInsultingSpeech,
-        isRacialIntolerance,
-        haveURLMedia,
-        urlMediaCount
-    } = data.meta;
+
+    article = article || {};
+    meta = meta || {};
+
+    const reportURL = `https://valurank.com/report/${id}`;
 
     return (
         <>
@@ -91,65 +84,12 @@ function Report({data}) {
             <Share
                 articleTitle={article.title}
                 score={score}
-                reportURL={`https://valurank.com/report/${id}`}
+                reportURL={reportURL}
             />
-            <div
-                className={reportStyles.row2}
-            >
-                <div
-                    className={reportStyles.col}
-                >
-                    <Indicators>
-                        <DetectedIndicator
-                            title={'Links to outside resourses'}
-                            detected={!!outsideLinks.length}
-                            count={outsideLinks.length}
-                        />
-                        <DetectedIndicator
-                            title={'Clickbait'}
-                            detected={isClickbait}
-                            count={clickbaitElements}
-                        />
-                        <ScoreIndicator
-                            title={'Content coherence'}
-                            score={contentCoherence}
-                            max={contentCoherenceMax}
-                        />
-                        <DetectedIndicator
-                            title={'Political biases'}
-                            detected={isPoliticalBiases}
-                            count={politicalBiasesElements}
-                        />
-                        <DetectedIndicator
-                            title={'Insulting speech'}
-                            detected={isInsultingSpeech}
-                            count={0}
-                        />
-                        <DetectedIndicator
-                            title={'Racial intolerance'}
-                            detected={isRacialIntolerance}
-                            count={0}
-                        />
-                        <DetectedIndicator
-                            title={'URL media'}
-                            detected={haveURLMedia}
-                            count={urlMediaCount}
-                        />
-                    </Indicators>
-                </div>
-                <div
-                    className={reportStyles.col}
-                >
-                    <Score
-                        score={score}
-                    />
-                    <List
-                        title={'Links to outside resourses'}
-                        data={outsideLinks}
-                        isLink={true}
-                    />
-                </div>
-            </div>
+            <Data
+                score={score}
+                meta={meta}
+            />
             <div
                 className={reportStyles.bannerSeparator}
             />
@@ -224,6 +164,109 @@ function Share({
             <CopyText
                 text={reportURL}
             />
+        </div>
+    );
+}
+
+function Data({
+    score,
+    meta
+}) {
+    const {
+        outsideLinks,
+        isClickbait,
+        clickbaitElements,
+        contentCoherence,
+        contentCoherenceMax,
+        isPoliticalBiases,
+        politicalBiasesElements,
+        isInsultingSpeech,
+        isRacialIntolerance,
+        haveURLMedia,
+        urlMediaCount
+    } = meta;
+
+    return (
+        <div
+            className={reportStyles.row2}
+        >
+            <div
+                className={reportStyles.col}
+            >
+                <Indicators>
+                    {
+                        (outsideLinks != null) &&
+                        <DetectedIndicator
+                            title={'Links to outside resourses'}
+                            detected={!!outsideLinks.length}
+                            count={outsideLinks.length}
+                        />
+                    }
+                    {
+                        (isClickbait != null) &&
+                        <DetectedIndicator
+                            title={'Clickbait'}
+                            detected={isClickbait}
+                            count={clickbaitElements}
+                        />
+                    }
+                    {
+                        (contentCoherence != null) &&
+                        <ScoreIndicator
+                            title={'Content coherence'}
+                            score={contentCoherence}
+                            max={contentCoherenceMax}
+                        />
+                    }
+                    {
+                        (isPoliticalBiases != null) &&
+                        <DetectedIndicator
+                            title={'Political biases'}
+                            detected={isPoliticalBiases}
+                            count={politicalBiasesElements}
+                        />
+                    }
+                    {
+                        (isInsultingSpeech != null) &&
+                        <DetectedIndicator
+                            title={'Insulting speech'}
+                            detected={isInsultingSpeech}
+                            count={0}
+                        />
+                    }
+                    {
+                        (isRacialIntolerance != null) &&
+                        <DetectedIndicator
+                            title={'Racial intolerance'}
+                            detected={isRacialIntolerance}
+                            count={0}
+                        />
+                    }
+                    {
+                        (haveURLMedia != null) &&
+                        <DetectedIndicator
+                            title={'URL media'}
+                            detected={haveURLMedia}
+                            count={urlMediaCount}
+                        />
+                    }
+                </Indicators>
+            </div>
+            <div
+                className={reportStyles.col}
+            >
+                <Score
+                    score={score}
+                />
+                {
+                    (outsideLinks && outsideLinks.length) &&
+                    <List
+                        title={'Links to outside resourses'}
+                        data={outsideLinks}
+                        isLink={true}
+                    />
+                }
+            </div>
         </div>
     );
 }

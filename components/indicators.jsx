@@ -60,7 +60,7 @@ export function DetectedIndicator({
     const data = [
         title || '',
         (detected ? 'Detected' : 'Not Detected'),
-        (count ? `${count} elements` : '')
+        ((count != null) ? `${count} elements` : '')
     ];
 
     return (
