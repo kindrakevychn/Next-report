@@ -17,7 +17,7 @@ export async function onRequestGet({request, env, params, next}) {
         return next();
     }
 
-    const reportData = await getReportData(params.hash)
+    const reportData = await getReportData(params.id)
     const rewriter = (
         new HTMLRewriter()
         .onDocument(new ReportDataWriter(reportData))
@@ -34,10 +34,10 @@ export async function onRequestGet({request, env, params, next}) {
     return res;
 }
 
-async function getReportData(hash) {
+async function getReportData(id) {
     // See `lib/valurank.js` for object structure.
     const data = {
-        hash: hash,
+        id,
         score: random(0, 100),
         article: {
             title: 'A few bytes here, a few there, pretty soon you’re talking real memory',
