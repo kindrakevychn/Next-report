@@ -1,9 +1,18 @@
-import clsx from 'clsx';
-
 import buttonStyles from '../styles/button.module.css';
 import styles from './navbar.module.css';
 
 export default function Navbar() {
+    const links = [
+        {
+            text: 'About us',
+            url: 'https://valurank.com/#rec367701551'
+        },
+        {
+            text: 'Download',
+            url: 'https://chrome.google.com/webstore/detail/kkhcmgnlodakongllknldloammpmbpeg'
+        },
+    ];
+
     return (
         <header
             className={styles.container}
@@ -19,23 +28,19 @@ export default function Navbar() {
             <div
                 className={styles.links}
             >
-                <a
-                    className={clsx(buttonStyles.button, styles.link)}
-                    href={'https://valurank.com/#rec367701551'}
-                    target={'_blank'}
-                    rel={'noreferrer noopener'}
-                >
-                    {'About us'}
-                </a>
-
-                <a
-                    className={clsx(buttonStyles.button, styles.link)}
-                    href={'https://chrome.google.com/webstore/detail/kkhcmgnlodakongllknldloammpmbpeg'}
-                    target={'_blank'}
-                    rel={'noreferrer noopener'}
-                >
-                    {'Download'}
-                </a>
+                {
+                    links.map((link) => (
+                        <a
+                            key={link.url}
+                            className={`${buttonStyles.button} ${styles.link}`}
+                            href={link.url}
+                            target={'_blank'}
+                            rel={'noreferrer noopener'}
+                        >
+                            {link.text}
+                        </a>
+                    ))
+                }
             </div>
         </header>
     );
