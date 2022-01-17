@@ -27,6 +27,15 @@ export default function Navbar() {
                 >
                     {'About us'}
                 </a>
+
+                <a
+                    className={clsx(buttonStyles.button, styles.link)}
+                    href={'https://chrome.google.com/webstore/detail/kkhcmgnlodakongllknldloammpmbpeg'}
+                    target={'_blank'}
+                    rel={'noreferrer noopener'}
+                >
+                    {'Download'}
+                </a>
             </div>
         </header>
     );
