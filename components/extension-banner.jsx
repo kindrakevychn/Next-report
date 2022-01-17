@@ -8,7 +8,7 @@ export default function ExtensionBanner() {
         <div
             className={styles.container}
         >
-            {'Want to see more? Install the extension!'}
+            {'Want to see more? Get the extension!'}
             <div
                 className={styles.icons}
             >
