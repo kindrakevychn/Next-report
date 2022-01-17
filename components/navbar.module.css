@@ -37,10 +37,23 @@
   }
 
   .container > * {
-    margin-bottom: .6rem;
+    margin-bottom: .75rem;
   }
 
   .container > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  .link {
+    margin-right: 0;
+    margin-bottom: .5rem;
+  }
+
+  .link:last-child {
     margin-bottom: 0;
   }
 }
