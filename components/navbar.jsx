@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import buttonStyles from '../styles/button.module.css';
 import styles from './navbar.module.css';
 
@@ -8,8 +10,9 @@ export default function Navbar() {
             url: 'https://valurank.com/#rec367701551'
         },
         {
-            text: 'Download',
-            url: 'https://chrome.google.com/webstore/detail/kkhcmgnlodakongllknldloammpmbpeg'
+            text: 'Add to Chrome for free',
+            url: 'https://chrome.google.com/webstore/detail/kkhcmgnlodakongllknldloammpmbpeg',
+            isButton: true
         },
     ];
 
@@ -32,7 +35,11 @@ export default function Navbar() {
                     links.map((link) => (
                         <a
                             key={link.url}
-                            className={`${buttonStyles.button} ${styles.link}`}
+                            className={clsx(
+                                buttonStyles.button,
+                                styles.link,
+                                link.isButton && styles.button
+                            )}
                             href={link.url}
                             target={'_blank'}
                             rel={'noreferrer noopener'}
