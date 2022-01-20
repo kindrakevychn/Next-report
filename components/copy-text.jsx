@@ -34,7 +34,8 @@ export default function CopyText({text}) {
             <div
                 className={clsx(
                     buttonStyles.button,
-                    disabled && buttonStyles.disabled
+                    disabled && buttonStyles.disabled,
+                    styles.copy
                 )}
                 title={'Copy'}
                 onClick={onClick}
