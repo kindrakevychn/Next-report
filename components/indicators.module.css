@@ -3,6 +3,7 @@
   border-radius: 5px;
   overflow: auto;
   filter: drop-shadow(4px 4px 15px rgba(178, 199, 188, .15));
+  border: 1px solid #DADADA;
 }
 
 .table {
