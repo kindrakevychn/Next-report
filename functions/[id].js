@@ -1,3 +1,8 @@
+import {
+    NotFound,
+    InternalServerError
+} from '../lib/response';
+
 export async function onRequestGet({request, env, params, next}) {
     const url = new URL(request.url);
 
@@ -17,7 +22,18 @@ export async function onRequestGet({request, env, params, next}) {
         return next();
     }
 
-    const reportData = await getReportData(params.id)
+    let reportData;
+
+    try {
+        reportData = await getReportData(params.id);
+    } catch (error) {
+        return InternalServerError();
+    }
+
+    if (!reportData) {
+        return await NotFound(env, request);
+    }
+
     const rewriter = (
         new HTMLRewriter()
         .onDocument(new ReportDataWriter(reportData))
@@ -34,42 +50,48 @@ export async function onRequestGet({request, env, params, next}) {
     return res;
 }
 
+/**
+ * Gets report page data for specific ID.
+ *
+ * @param {string} id
+ * Report page ID.
+ *
+ * @returns
+ * See `lib/valurank.js` for structure example.
+ * If data is missing for given `id`, then this function
+ * will return `null`.
+ *
+ * @throws
+ * Throws an error if API request failed (except HTTP 404).
+ */
 async function getReportData(id) {
-    // See `lib/valurank.js` for object structure.
+    const response = await fetch('https://api.valurank.com/api/content', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+
+    if (response.status === 404) {
+        return null;
+    }
+
+    if (!response.ok) {
+        throw new Error(response.statusText);
+    }
+
+    const result = await response.json();
     const data = {
         id,
-        score: random(0, 100),
+        score: result.score,
+        details: result.details,
         article: {
-            title: 'A few bytes here, a few there, pretty soon you’re talking real memory',
-            url: 'https://dave.cheney.net/2021/01/05/a-few-bytes-here-a-few-there-pretty-soon-youre-talking-real-memory'
-        },
-        meta: {
-            outsideLinks: [
-                'https://github.com/golang/go/issues/23676',
-                'https://golang.org/doc/go1.15#runtime',
-                'https://foo.bar/with-some-very-long-pathname'
-            ],
-            isClickbait: true,
-            clickbaitElements: 3,
-            contentCoherence: 58,
-            contentCoherenceMax: 100,
-            isPoliticalBiases: true,
-            politicalBiasesElements: 5,
-            isInsultingSpeech: true,
-            isRacialIntolerance: false,
-            haveURLMedia: true,
-            urlMediaCount: 3
+            title: result.content.title,
+            url: result.content.url
         }
     };
 
     return data;
-}
-
-/**
- * Min and max included.
- */
-function random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 class ReportDataWriter {
