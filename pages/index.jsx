@@ -27,13 +27,8 @@ export default function Index() {
     const [reportData, setReportData] = useState(null);
 
     useEffect(() => {
-        getReportData()
-        .then((data) => {
-            setReportData(data);
-        })
-        .catch((err) => {
-            setError(String(err));
-        });
+        const data = getReportData();
+        setReportData(data);
     }, []);
 
     return (
