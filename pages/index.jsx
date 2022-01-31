@@ -73,7 +73,7 @@ function Report({data}) {
     article = article || {};
     meta = meta || {};
 
-    const reportURL = `https://valurank.com/report/${id}`;
+    const reportURL = `${document.location.origin}/${id}`;
 
     return (
         <>
