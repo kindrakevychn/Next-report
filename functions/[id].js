@@ -65,7 +65,7 @@ export async function onRequestGet({request, env, params, next}) {
  * Throws an error if API request failed (except HTTP 404).
  */
 async function getReportData(id) {
-    const response = await fetch('https://api.valurank.com/api/content', {
+    const response = await fetch(`https://api.valurank.com/api/content/${id}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json'
