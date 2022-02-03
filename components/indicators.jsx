@@ -90,14 +90,19 @@ export function DetectedIndicator({
 export function ScoreIndicator({
     title,
     score,
-    max
+    max,
+    status
 }) {
-    const status = scoreToStatus(score);
+    title = title || '';
+    score = score || 0;
+    max = max || 0;
+    status = status || scoreToStatus(score);
+
     const color = scoreToColor(score);
     const data = [
-        title || '',
+        title,
         status,
-        `${score || 0}/${max || 0}`
+        `${score}/${max}`
     ];
 
     return (

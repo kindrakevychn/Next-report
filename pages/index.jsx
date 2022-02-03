@@ -27,13 +27,8 @@ export default function Index() {
     const [reportData, setReportData] = useState(null);
 
     useEffect(() => {
-        getReportData()
-        .then((data) => {
-            setReportData(data);
-        })
-        .catch((err) => {
-            setError(String(err));
-        });
+        const data = getReportData();
+        setReportData(data);
     }, []);
 
     return (
@@ -67,11 +62,11 @@ function Report({data}) {
         id,
         score,
         article,
-        meta
+        details
     } = data;
 
     article = article || {};
-    meta = meta || {};
+    details = details || {};
 
     const reportURL = `${document.location.origin}/${id}`;
 
@@ -88,7 +83,7 @@ function Report({data}) {
             />
             <Data
                 score={score}
-                meta={meta}
+                details={details}
             />
             <div
                 className={reportStyles.bannerSeparator}
@@ -170,21 +165,13 @@ function Share({
 
 function Data({
     score,
-    meta
+    details
 }) {
     const {
-        outsideLinks,
-        isClickbait,
-        clickbaitElements,
-        contentCoherence,
-        contentCoherenceMax,
-        isPoliticalBiases,
-        politicalBiasesElements,
-        isInsultingSpeech,
-        isRacialIntolerance,
-        haveURLMedia,
-        urlMediaCount
-    } = meta;
+        quality,
+        biasedLanguage,
+        propagandaLikelihood
+    } = details;
 
     return (
         <div
@@ -195,59 +182,30 @@ function Data({
             >
                 <Indicators>
                     {
-                        (outsideLinks != null) &&
-                        <DetectedIndicator
-                            title={'Links to outside resourses'}
-                            detected={!!outsideLinks.length}
-                            count={outsideLinks.length}
-                        />
-                    }
-                    {
-                        (isClickbait != null) &&
-                        <DetectedIndicator
-                            title={'Clickbait'}
-                            detected={isClickbait}
-                            count={clickbaitElements}
-                        />
-                    }
-                    {
-                        (contentCoherence != null) &&
+                        (quality != null) &&
                         <ScoreIndicator
-                            title={'Content coherence'}
-                            score={contentCoherence}
-                            max={contentCoherenceMax}
+                            title={'Quality'}
+                            score={quality.score}
+                            max={100}
+                            status={quality.label}
                         />
                     }
                     {
-                        (isPoliticalBiases != null) &&
-                        <DetectedIndicator
-                            title={'Political biases'}
-                            detected={isPoliticalBiases}
-                            count={politicalBiasesElements}
+                        (biasedLanguage != null) &&
+                        <ScoreIndicator
+                            title={'Biased language'}
+                            score={biasedLanguage.score}
+                            max={100}
+                            status={biasedLanguage.label}
                         />
                     }
                     {
-                        (isInsultingSpeech != null) &&
-                        <DetectedIndicator
-                            title={'Insulting speech'}
-                            detected={isInsultingSpeech}
-                            count={0}
-                        />
-                    }
-                    {
-                        (isRacialIntolerance != null) &&
-                        <DetectedIndicator
-                            title={'Racial intolerance'}
-                            detected={isRacialIntolerance}
-                            count={0}
-                        />
-                    }
-                    {
-                        (haveURLMedia != null) &&
-                        <DetectedIndicator
-                            title={'URL media'}
-                            detected={haveURLMedia}
-                            count={urlMediaCount}
+                        (propagandaLikelihood != null) &&
+                        <ScoreIndicator
+                            title={'Propaganda likelihood'}
+                            score={propagandaLikelihood.score}
+                            max={100}
+                            status={propagandaLikelihood.label}
                         />
                     }
                 </Indicators>
@@ -258,14 +216,6 @@ function Data({
                 <Score
                     score={score}
                 />
-                {
-                    (outsideLinks && outsideLinks.length) &&
-                    <List
-                        title={'Links to outside resourses'}
-                        data={outsideLinks}
-                        isLink={true}
-                    />
-                }
             </div>
         </div>
     );
