@@ -57,10 +57,15 @@ export function DetectedIndicator({
     detected,
     count
 }) {
+    const elementsText = (
+        (count === 1) ?
+        'element' :
+        'elements'
+    );
     const data = [
         title || '',
         (detected ? 'Detected' : 'Not Detected'),
-        ((count != null) ? `${count} elements` : '')
+        ((count != null) ? `${count} ${elementsText}` : '')
     ];
 
     return (
