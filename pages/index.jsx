@@ -170,7 +170,8 @@ function Data({
     const {
         quality,
         biasedLanguage,
-        propagandaLikelihood
+        propagandaLikelihood,
+        affiliatedLinks
     } = details;
 
     return (
@@ -208,6 +209,17 @@ function Data({
                             status={propagandaLikelihood.label}
                         />
                     }
+                    {
+                        (
+                            affiliatedLinks != null &&
+                            Array.isArray(affiliatedLinks.data)
+                        ) &&
+                        <DetectedIndicator
+                            title={"Affiliated links"}
+                            detected={!!affiliatedLinks.data.length}
+                            count={affiliatedLinks.data.length}
+                        />
+                    }
                 </Indicators>
             </div>
             <div
@@ -216,6 +228,18 @@ function Data({
                 <Score
                     score={score}
                 />
+                {
+                    (
+                        affiliatedLinks != null &&
+                        Array.isArray(affiliatedLinks.data) &&
+                        !!affiliatedLinks.data.length
+                    ) &&
+                    <List
+                        title={"Affiliated links"}
+                        data={affiliatedLinks.data}
+                        isLink={true}
+                    />
+                }
             </div>
         </div>
     );
