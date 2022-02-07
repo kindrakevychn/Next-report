@@ -1,3 +1,5 @@
+import HoverInfo from './hover-info';
+
 import styles from './score.module.css';
 
 export default function Score({score}) {
@@ -71,6 +73,9 @@ export default function Score({score}) {
                     className={styles.title}
                 >
                     {'Score'}
+                    <HoverInfo
+                        text={title}
+                    />
                 </div>
 
                 <div
@@ -89,9 +94,7 @@ export default function Score({score}) {
                 <div
                     className={styles.status}
                 >
-                    <span
-                        title={title}
-                    >
+                    <span>
                         {status}
                     </span>
                 </div>
