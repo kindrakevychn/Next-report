@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  cursor: help;
+  fill: #1C2133;
+  margin-top: .1rem;
+}
+
+.container > svg {
+  width: 1.2rem;
+  height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
