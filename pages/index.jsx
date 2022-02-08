@@ -177,7 +177,8 @@ function Data({
         biasedLanguage,
         propagandaLikelihood,
         affiliatedLinks,
-        hateSpeech
+        hateSpeech,
+        offensiveLanguage
     } = details;
 
     return (
@@ -239,6 +240,16 @@ function Data({
                             status={hateSpeech.label}
                         />
                     }
+                    {
+                        (offensiveLanguage != null) &&
+                        <ScoreIndicator
+                            title={'Offensive language'}
+                            score={offensiveLanguage.score}
+                            max={100}
+                            status={offensiveLanguage.label}
+                            description={DESCRIPTION.offensiveLanguage}
+                        />
+                    }
                 </Indicators>
             </div>
             <div
@@ -274,5 +285,6 @@ const DESCRIPTION = {
     quality: `A supervised NLP model trained to rank articles along a continuum ranging from\npurely-informative (like encyclopedia entries) to pure-conjecture (like fake news or\nfan fiction). This score tends to have an inverse correlation with the level of\n"opinionatedness" the article's author exhibits in his/her writing, i.e. editorials and\nopinion pieces will generally score lower than factual news reports.`,
     biasedLanguage: `A supervised NLP model trained on a dataset of wikipedia edits rejected for being subjective\nor exhibiting bias. The scale here is inverted, i.e. a higher score means LESS subjectivity/bias.`,
     propagandaLikelihood: `A supervised NLP model trained on the QCRI dataset of known 17 known propaganda techniques\nthat are used by repressive governments and state news agencies. The scale here is inverted,\ni.e. a higher score means LOWER likelihood that propaganda techniques were used by the author.`,
-    affiliatedLinks: `The number of affiliate links on the page (i.e. links that will take the reader to the\nlanding page of an online store or commercial service, and from which the writer\nwill receive an affiliate fee or other commercial incentive). Any number other than 0\ngenerally indicates that the writer of the article has a financial interest and does not\nmerely seek to inform the reader. `
+    affiliatedLinks: `The number of affiliate links on the page (i.e. links that will take the reader to the\nlanding page of an online store or commercial service, and from which the writer\nwill receive an affiliate fee or other commercial incentive). Any number other than 0\ngenerally indicates that the writer of the article has a financial interest and does not\nmerely seek to inform the reader.`,
+    offensiveLanguage: `A supervised NLP model trained to detect offensive language\nin all its common varieties - insults, threats, racism, etc.`
 };
