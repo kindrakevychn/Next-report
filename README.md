@@ -50,4 +50,6 @@ See the [package.json](package.json). Script purpose should be clear from the sc
 
 ## Version naming
 
-This project uses following structure for version naming: `<MAJOR RELEASE>.<BIG CHANGES>.<SMALL CHANGES>`.
+This project uses following structure for version naming: `<MAJOR RELEASE>.<CHANGES OF ANY KIND>`.
+
+Because of frequent releases this project refused of [semantic versioning](https://semver.org/).
