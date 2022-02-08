@@ -6,6 +6,7 @@
 - [Overview](#overview)
 - [Changelog](#changelog)
 - [Architecture](#architecture)
+- [Version](#version)
 - [Development](#development)
   - [Requirements](#requirements)
   - [Wrangler](#wrangler)
@@ -26,6 +27,10 @@ See [Releases](https://github.com/Valurank/report/releases).
 This app is intended to be deployed with [Cloudflare Pages](https://pages.cloudflare.com/). App is built with [Next.js](https://nextjs.org/). It is intended to be static web app, i.e. it uses [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export). The reason is Cloudflare Pages. It uses [Cloudflare Workers Functions](https://developers.cloudflare.com/pages/platform/functions) to implement needed logic on backend side.
 
 Also see the [docs](docs/) folder which might give you some overview.
+
+## Version
+
+`version` from `package.json` will not give you any valuable information. This project uses commit hash as pointer to specific version, and tags to mark release. See [version naming](#version-naming) for tags.
 
 ## Development
 
