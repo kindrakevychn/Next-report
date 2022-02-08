@@ -3,6 +3,7 @@ import {
     scoreToColor,
     scoreToStatus
 } from './score';
+import HoverInfo from './hover-info';
 
 import styles from './indicators.module.css';
 
@@ -55,7 +56,8 @@ function Head() {
 export function DetectedIndicator({
     title,
     detected,
-    count
+    count,
+    description
 }) {
     const elementsText = (
         (count === 1) ?
@@ -82,8 +84,16 @@ export function DetectedIndicator({
                         className={styles.data}
                         key={`${i}-${value}`}
                     >
-                        <span>
+                        <span
+                            className={styles.text}
+                        >
                             {value}
+                            {
+                                (i === 0) && description &&
+                                <HoverInfo
+                                    text={description}
+                                />
+                            }
                         </span>
                     </td>
                 ))
@@ -96,7 +106,8 @@ export function ScoreIndicator({
     title,
     score,
     max,
-    status
+    status,
+    description
 }) {
     title = title || '';
     score = score || 0;
@@ -126,7 +137,17 @@ export function ScoreIndicator({
                         className={styles.data}
                         key={`${i}-${value}`}
                     >
-                        {value}
+                        <span
+                            className={styles.text}
+                        >
+                            {value}
+                            {
+                                (i === 0) && description &&
+                                <HoverInfo
+                                    text={description}
+                                />
+                            }
+                        </span>
                     </td>
                 ))
             }

@@ -26,6 +26,12 @@
   color: #4164E2;
 }
 
+.title {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
 .score {
   color: #5978E6;
   display: flex;
@@ -82,7 +88,6 @@
 }
 
 .status > span {
-  cursor: help;
   margin-left: min(
     max(
       calc(1% * var(--score) - 1rem * var(--statusWidth)),
