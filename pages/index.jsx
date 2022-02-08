@@ -226,7 +226,7 @@ function Data({
                             Array.isArray(affiliatedLinks.data)
                         ) &&
                         <DetectedIndicator
-                            title={"Affiliated links"}
+                            title={'Affiliate links'}
                             detected={!!affiliatedLinks.data.length}
                             count={affiliatedLinks.data.length}
                             description={DESCRIPTION.affiliatedLinks}
