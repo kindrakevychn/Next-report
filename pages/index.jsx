@@ -176,7 +176,8 @@ function Data({
         quality,
         biasedLanguage,
         propagandaLikelihood,
-        affiliatedLinks
+        affiliatedLinks,
+        hateSpeech
     } = details;
 
     return (
@@ -227,6 +228,15 @@ function Data({
                             detected={!!affiliatedLinks.data.length}
                             count={affiliatedLinks.data.length}
                             description={DESCRIPTION.affiliatedLinks}
+                        />
+                    }
+                    {
+                        (hateSpeech != null) &&
+                        <ScoreIndicator
+                            title={'Hate speech'}
+                            score={hateSpeech.score}
+                            max={100}
+                            status={hateSpeech.label}
                         />
                     }
                 </Indicators>
