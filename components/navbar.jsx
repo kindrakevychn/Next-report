@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import clsx from 'clsx';
 
 import buttonStyles from '../styles/button.module.css';
@@ -25,6 +27,17 @@ export default function Navbar() {
                     className={styles.title}
                 >
                     {'Valurank'}
+                    <span
+                        className={styles.logoContainer}
+                    >
+                        <img
+                            src={'/logo.svg'}
+                            alt={''}
+                            width={16}
+                            height={16}
+                            decoding={'async'}
+                        />
+                    </span>
                 </div>
             </div>
 
