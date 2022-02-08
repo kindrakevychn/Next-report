@@ -4,6 +4,7 @@
 
 - [Content](#content)
 - [Overview](#overview)
+- [Changelog](#changelog)
 - [Architecture](#architecture)
 - [Development](#development)
   - [Requirements](#requirements)
@@ -15,6 +16,10 @@
 ## Overview
 
 It is a web app which provides detailed report about specific Valurank score. To get data it interacts with Valurank API.
+
+## Changelog
+
+See [Releases](https://github.com/Valurank/report/releases).
 
 ## Architecture
 
