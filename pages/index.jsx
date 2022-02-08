@@ -193,7 +193,7 @@ function Data({
                     {
                         (quality != null) &&
                         <ScoreIndicator
-                            title={'Quality'}
+                            title={'Dispassionate language'}
                             score={quality.score}
                             max={100}
                             status={quality.label}
@@ -203,7 +203,7 @@ function Data({
                     {
                         (biasedLanguage != null) &&
                         <ScoreIndicator
-                            title={'Biased language'}
+                            title={'Subjectivitiy'}
                             score={biasedLanguage.score}
                             max={100}
                             status={biasedLanguage.label}
@@ -213,7 +213,7 @@ function Data({
                     {
                         (propagandaLikelihood != null) &&
                         <ScoreIndicator
-                            title={'Propaganda likelihood'}
+                            title={'Use of propaganda techniques'}
                             score={propagandaLikelihood.score}
                             max={100}
                             status={propagandaLikelihood.label}
@@ -226,7 +226,7 @@ function Data({
                             Array.isArray(affiliatedLinks.data)
                         ) &&
                         <DetectedIndicator
-                            title={"Affiliated links"}
+                            title={'Affiliate links'}
                             detected={!!affiliatedLinks.data.length}
                             count={affiliatedLinks.data.length}
                             description={DESCRIPTION.affiliatedLinks}
