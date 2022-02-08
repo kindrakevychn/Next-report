@@ -12,6 +12,7 @@
   - [Wrangler](#wrangler)
   - [Installation](#installation)
   - [Scripts](#scripts)
+  - [How to make a release](#how-to-make-a-release)
 - [Version naming](#version-naming)
 
 ## Overview
@@ -52,6 +53,19 @@ Note that you don't need to install [Wrangler](https://developers.cloudflare.com
 ### Scripts
 
 See the [package.json](package.json). Script purpose should be clear from the script title.
+
+### How to make a release
+
+Try to do frequent small releases instead of large infrequent ones.
+
+1. In separate PR add specific change. Try to do one PR per specific change.
+2. Merge this PR into `master`. Note that it will go in production instantly.
+3. Perform 1-2 steps as much as needed, i.e. decide what changes will be in one specific release.
+4. When № 3 is done, open [Releases](https://github.com/Valurank/report/releases).
+5. Click on "Draft new release".
+6. Fill next tag, release title, click on "Auto-generate release notes".
+7. Click on "Publish release".
+8. Specific release will refer to specific commit. Use this commit as specific version indicator. Using CF Pages console you can rollback to this commit if needed.
 
 ## Version naming
 
