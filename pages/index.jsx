@@ -213,7 +213,7 @@ function Data({
                     {
                         (propagandaLikelihood != null) &&
                         <ScoreIndicator
-                            title={'Propaganda likelihood'}
+                            title={'Use of propaganda techniques'}
                             score={propagandaLikelihood.score}
                             max={100}
                             status={propagandaLikelihood.label}
