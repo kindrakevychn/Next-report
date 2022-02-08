@@ -1,10 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
+
 import clsx from 'clsx';
-import Image from 'next/image';
 
 import buttonStyles from '../styles/button.module.css';
 import styles from './navbar.module.css';
-
-import logoImg from '../public/logo.svg';
 
 export default function Navbar() {
     const links = [
@@ -31,11 +30,12 @@ export default function Navbar() {
                     <span
                         className={styles.logoContainer}
                     >
-                        <Image
-                            src={logoImg}
-                            alt={'Logo'}
+                        <img
+                            src={'/logo.svg'}
+                            alt={''}
                             width={16}
                             height={16}
+                            decoding={'async'}
                         />
                     </span>
                 </div>
