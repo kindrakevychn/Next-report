@@ -178,7 +178,8 @@ function Data({
         propagandaLikelihood,
         affiliatedLinks,
         hateSpeech,
-        offensiveLanguage
+        offensiveLanguage,
+        tone
     } = details;
 
     return (
@@ -248,6 +249,15 @@ function Data({
                             max={100}
                             status={offensiveLanguage.label}
                             description={DESCRIPTION.offensiveLanguage}
+                        />
+                    }
+                    {
+                        (tone != null) &&
+                        <ScoreIndicator
+                            title={'Tone'}
+                            score={tone.score}
+                            max={100}
+                            status={tone.label}
                         />
                     }
                 </Indicators>
