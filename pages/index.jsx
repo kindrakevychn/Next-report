@@ -193,7 +193,7 @@ function Data({
                     {
                         (quality != null) &&
                         <ScoreIndicator
-                            title={'Quality'}
+                            title={'Dispassionate language'}
                             score={quality.score}
                             max={100}
                             status={quality.label}
