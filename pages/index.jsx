@@ -203,7 +203,7 @@ function Data({
                     {
                         (biasedLanguage != null) &&
                         <ScoreIndicator
-                            title={'Biased language'}
+                            title={'Subjectivitiy'}
                             score={biasedLanguage.score}
                             max={100}
                             status={biasedLanguage.label}
