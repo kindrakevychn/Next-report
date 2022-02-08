@@ -25,6 +25,14 @@
   flex-grow: 1;
 }
 
+.articleLink > svg {
+  width: 1.5rem;
+  height: auto;
+  fill: #272833;
+  vertical-align: middle;
+  margin-left: .25rem;
+}
+
 .bannerSeparator {
   border-top: 1px solid rgba(28, 33, 51, .2);
   width: 20%;
