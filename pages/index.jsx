@@ -13,7 +13,8 @@ import List from '../components/list';
 import ExtensionBanner from '../components/extension-banner';
 import Indicators, {
     DetectedIndicator,
-    ScoreIndicator
+    ScoreIndicator,
+    NumberIndicator
 } from '../components/indicators';
 import {
     getReportData,
@@ -183,21 +184,19 @@ function Data({
                 <Indicators>
                     {
                         (details.quality != null) &&
-                        <ScoreIndicator
+                        <NumberIndicator
                             title={INDICATORS.quality.title}
-                            score={details.quality.score}
+                            number={details.quality.score}
                             max={INDICATORS.quality.maxScore}
-                            status={details.quality.label}
                             description={INDICATORS.quality.description}
                         />
                     }
                     {
                         (details.biasedLanguage != null) &&
-                        <ScoreIndicator
+                        <NumberIndicator
                             title={INDICATORS.biasedLanguage.title}
-                            score={details.biasedLanguage.score}
+                            number={details.biasedLanguage.score}
                             max={INDICATORS.biasedLanguage.maxScore}
-                            status={details.biasedLanguage.label}
                             description={INDICATORS.biasedLanguage.description}
                         />
                     }
@@ -255,9 +254,9 @@ function Data({
                     }
                     {
                         (details.readability != null) &&
-                        <ScoreIndicator
+                        <NumberIndicator
                             title={INDICATORS.readability.title}
-                            score={details.readability.score}
+                            number={details.readability.score}
                             max={INDICATORS.readability.maxScore}
                             description={INDICATORS.readability.description}
                         />
