@@ -31,8 +31,7 @@ export default function Indicators({children}) {
 function Head() {
     const data = [
         'Indicators',
-        'Results',
-        ''
+        'Results'
     ];
 
     return (
