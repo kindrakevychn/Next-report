@@ -184,8 +184,8 @@ function Data({
                     {
                         (details.quality != null) &&
                         <NumberIndicator
-                            title={INDICATORS.quality.title}
                             number={details.quality.score}
+                            title={INDICATORS.quality.title}
                             max={INDICATORS.quality.maxScore}
                             description={INDICATORS.quality.description}
                         />
@@ -193,8 +193,8 @@ function Data({
                     {
                         (details.biasedLanguage != null) &&
                         <NumberIndicator
-                            title={INDICATORS.biasedLanguage.title}
                             number={details.biasedLanguage.score}
+                            title={INDICATORS.biasedLanguage.title}
                             max={INDICATORS.biasedLanguage.maxScore}
                             description={INDICATORS.biasedLanguage.description}
                         />
@@ -202,9 +202,9 @@ function Data({
                     {
                         (details.propagandaLikelihood != null) &&
                         <StringIndicator
-                            title={INDICATORS.propagandaLikelihood.title}
                             score={details.propagandaLikelihood.score}
                             string={details.propagandaLikelihood.label}
+                            title={INDICATORS.propagandaLikelihood.title}
                             description={INDICATORS.propagandaLikelihood.description}
                         />
                     }
@@ -214,43 +214,43 @@ function Data({
                             Array.isArray(details.affiliatedLinks.data)
                         ) &&
                         <StringIndicator
-                            title={INDICATORS.affiliatedLinks.title}
                             score={details.affiliatedLinks.score}
                             string={details.affiliatedLinks.label}
+                            title={INDICATORS.affiliatedLinks.title}
                             description={INDICATORS.affiliatedLinks.description}
                         />
                     }
                     {
                         (details.hateSpeech != null) &&
                         <StringIndicator
-                            title={INDICATORS.hateSpeech.title}
                             score={details.hateSpeech.score}
                             string={details.hateSpeech.label}
+                            title={INDICATORS.hateSpeech.title}
                             description={INDICATORS.hateSpeech.description}
                         />
                     }
                     {
                         (details.offensiveLanguage != null) &&
                         <StringIndicator
-                            title={INDICATORS.offensiveLanguage.title}
                             score={details.offensiveLanguage.score}
                             string={details.offensiveLanguage.label}
+                            title={INDICATORS.offensiveLanguage.title}
                             description={INDICATORS.offensiveLanguage.description}
                         />
                     }
                     {
                         (details.tone != null) &&
                         <StringIndicator
-                            title={INDICATORS.tone.title}
                             string={details.tone.label}
+                            title={INDICATORS.tone.title}
                             description={INDICATORS.tone.description}
                         />
                     }
                     {
                         (details.readability != null) &&
                         <NumberIndicator
-                            title={INDICATORS.readability.title}
                             number={details.readability.score}
+                            title={INDICATORS.readability.title}
                             max={INDICATORS.readability.maxScore}
                             description={INDICATORS.readability.description}
                         />
@@ -270,8 +270,8 @@ function Data({
                         !!details.affiliatedLinks.data.length
                     ) &&
                     <List
-                        title={INDICATORS.affiliatedLinks.title}
                         data={details.affiliatedLinks.data}
+                        title={INDICATORS.affiliatedLinks.title}
                         isLink={true}
                     />
                 }
