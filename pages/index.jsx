@@ -179,7 +179,8 @@ function Data({
         affiliatedLinks,
         hateSpeech,
         offensiveLanguage,
-        tone
+        tone,
+        readability
     } = details;
 
     return (
@@ -260,6 +261,15 @@ function Data({
                             status={tone.label}
                         />
                     }
+                    {
+                        (readability != null) &&
+                        <ScoreIndicator
+                            title={'Language complexity'}
+                            score={readability.score}
+                            max={100}
+                            description={DESCRIPTION.readability}
+                        />
+                    }
                 </Indicators>
             </div>
             <div
@@ -296,5 +306,6 @@ const DESCRIPTION = {
     biasedLanguage: `A supervised NLP model trained on a dataset of wikipedia edits rejected for being subjective\nor exhibiting bias. The scale here is inverted, i.e. a higher score means LESS subjectivity/bias.`,
     propagandaLikelihood: `A supervised NLP model trained on the QCRI dataset of known 17 known propaganda techniques\nthat are used by repressive governments and state news agencies. The scale here is inverted,\ni.e. a higher score means LOWER likelihood that propaganda techniques were used by the author.`,
     affiliatedLinks: `The number of affiliate links on the page (i.e. links that will take the reader to the\nlanding page of an online store or commercial service, and from which the writer\nwill receive an affiliate fee or other commercial incentive). Any number other than 0\ngenerally indicates that the writer of the article has a financial interest and does not\nmerely seek to inform the reader.`,
-    offensiveLanguage: `A supervised NLP model trained to detect offensive language\nin all its common varieties - insults, threats, racism, etc.`
+    offensiveLanguage: `A supervised NLP model trained to detect offensive language\nin all its common varieties - insults, threats, racism, etc.`,
+    readability: `A measurement of the complexity of the language used. This model roughly\ncorresponds to the "grade-level" ranking used by many creator tools, but has\nbeen calibrated to work better for the type of content generally found online.`
 };
