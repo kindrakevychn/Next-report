@@ -154,3 +154,64 @@ export function ScoreIndicator({
         </tr>
     );
 }
+
+export function NumberIndicator({
+    title,
+    number,
+    max,
+    description
+}) {
+    title = title || '';
+    number = number || -1;
+
+    let numberStr = '';
+    let color = '';
+
+    if (max != null) {
+        numberStr = `${number}/${max}`;
+
+        if (max <= 100) {
+            color = scoreToColor(number);
+        }
+    } else {
+        numberStr = String(number);
+    }
+
+    const data = [
+        title,
+        numberStr
+    ];
+
+    return (
+        <tr
+            className={clsx(
+                styles.row,
+                styles.number
+            )}
+            style={{
+                '--color': color
+            }}
+        >
+            {
+                data.map((value, i) => (
+                    <td
+                        className={styles.data}
+                        key={`${i}-${value}`}
+                    >
+                        <span
+                            className={styles.text}
+                        >
+                            {value}
+                            {
+                                (i === 0) && description &&
+                                <HoverInfo
+                                    text={description}
+                                />
+                            }
+                        </span>
+                    </td>
+                ))
+            }
+        </tr>
+    );
+}

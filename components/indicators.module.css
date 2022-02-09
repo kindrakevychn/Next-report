@@ -61,3 +61,7 @@
   font-size: .875rem;
   text-transform: uppercase;
 }
+
+.number > .data:nth-child(2) {
+  color: var(--color);
+}
