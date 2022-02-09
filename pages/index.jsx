@@ -230,6 +230,7 @@ function Data({
                             score={details.hateSpeech.score}
                             max={INDICATORS.hateSpeech.maxScore}
                             status={details.hateSpeech.label}
+                            description={INDICATORS.hateSpeech.description}
                         />
                     }
                     {
@@ -249,6 +250,7 @@ function Data({
                             score={details.tone.score}
                             max={INDICATORS.tone.maxScore}
                             status={details.tone.label}
+                            description={INDICATORS.tone.description}
                         />
                     }
                     {
