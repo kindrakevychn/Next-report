@@ -173,17 +173,6 @@ function Data({
     score,
     details
 }) {
-    const {
-        quality,
-        biasedLanguage,
-        propagandaLikelihood,
-        affiliatedLinks,
-        hateSpeech,
-        offensiveLanguage,
-        tone,
-        readability
-    } = details;
-
     return (
         <div
             className={reportStyles.row2}
@@ -193,80 +182,80 @@ function Data({
             >
                 <Indicators>
                     {
-                        (quality != null) &&
+                        (details.quality != null) &&
                         <ScoreIndicator
                             title={INDICATORS.quality.title}
-                            score={quality.score}
+                            score={details.quality.score}
                             max={INDICATORS.quality.maxScore}
-                            status={quality.label}
+                            status={details.quality.label}
                             description={INDICATORS.quality.description}
                         />
                     }
                     {
-                        (biasedLanguage != null) &&
+                        (details.biasedLanguage != null) &&
                         <ScoreIndicator
                             title={INDICATORS.biasedLanguage.title}
-                            score={biasedLanguage.score}
+                            score={details.biasedLanguage.score}
                             max={INDICATORS.biasedLanguage.maxScore}
-                            status={biasedLanguage.label}
+                            status={details.biasedLanguage.label}
                             description={INDICATORS.biasedLanguage.description}
                         />
                     }
                     {
-                        (propagandaLikelihood != null) &&
+                        (details.propagandaLikelihood != null) &&
                         <ScoreIndicator
                             title={INDICATORS.propagandaLikelihood.title}
-                            score={propagandaLikelihood.score}
+                            score={details.propagandaLikelihood.score}
                             max={INDICATORS.propagandaLikelihood.maxScore}
-                            status={propagandaLikelihood.label}
+                            status={details.propagandaLikelihood.label}
                             description={INDICATORS.propagandaLikelihood.description}
                         />
                     }
                     {
                         (
-                            affiliatedLinks != null &&
-                            Array.isArray(affiliatedLinks.data)
+                            details.affiliatedLinks != null &&
+                            Array.isArray(details.affiliatedLinks.data)
                         ) &&
                         <DetectedIndicator
                             title={INDICATORS.affiliatedLinks.title}
-                            detected={!!affiliatedLinks.data.length}
-                            count={affiliatedLinks.data.length}
+                            detected={!!details.affiliatedLinks.data.length}
+                            count={details.affiliatedLinks.data.length}
                             description={INDICATORS.affiliatedLinks.description}
                         />
                     }
                     {
-                        (hateSpeech != null) &&
+                        (details.hateSpeech != null) &&
                         <ScoreIndicator
                             title={INDICATORS.hateSpeech.title}
-                            score={hateSpeech.score}
+                            score={details.hateSpeech.score}
                             max={INDICATORS.hateSpeech.maxScore}
-                            status={hateSpeech.label}
+                            status={details.hateSpeech.label}
                         />
                     }
                     {
-                        (offensiveLanguage != null) &&
+                        (details.offensiveLanguage != null) &&
                         <ScoreIndicator
                             title={INDICATORS.offensiveLanguage.title}
-                            score={offensiveLanguage.score}
+                            score={details.offensiveLanguage.score}
                             max={INDICATORS.offensiveLanguage.maxScore}
-                            status={offensiveLanguage.label}
+                            status={details.offensiveLanguage.label}
                             description={INDICATORS.offensiveLanguage.description}
                         />
                     }
                     {
-                        (tone != null) &&
+                        (details.tone != null) &&
                         <ScoreIndicator
                             title={INDICATORS.tone.title}
-                            score={tone.score}
+                            score={details.tone.score}
                             max={INDICATORS.tone.maxScore}
-                            status={tone.label}
+                            status={details.tone.label}
                         />
                     }
                     {
-                        (readability != null) &&
+                        (details.readability != null) &&
                         <ScoreIndicator
                             title={INDICATORS.readability.title}
-                            score={readability.score}
+                            score={details.readability.score}
                             max={INDICATORS.readability.maxScore}
                             description={INDICATORS.readability.description}
                         />
@@ -281,13 +270,13 @@ function Data({
                 />
                 {
                     (
-                        affiliatedLinks != null &&
-                        Array.isArray(affiliatedLinks.data) &&
-                        !!affiliatedLinks.data.length
+                        details.affiliatedLinks != null &&
+                        Array.isArray(details.affiliatedLinks.data) &&
+                        !!details.affiliatedLinks.data.length
                     ) &&
                     <List
                         title={INDICATORS.affiliatedLinks.title}
-                        data={affiliatedLinks.data}
+                        data={details.affiliatedLinks.data}
                         isLink={true}
                     />
                 }
