@@ -12,8 +12,8 @@ import Error from '../components/error';
 import List from '../components/list';
 import ExtensionBanner from '../components/extension-banner';
 import Indicators, {
-    DetectedIndicator,
-    ScoreIndicator
+    NumberIndicator,
+    StringIndicator
 } from '../components/indicators';
 import {
     getReportData,
@@ -183,31 +183,28 @@ function Data({
                 <Indicators>
                     {
                         (details.quality != null) &&
-                        <ScoreIndicator
+                        <NumberIndicator
+                            number={details.quality.score}
                             title={INDICATORS.quality.title}
-                            score={details.quality.score}
                             max={INDICATORS.quality.maxScore}
-                            status={details.quality.label}
                             description={INDICATORS.quality.description}
                         />
                     }
                     {
                         (details.biasedLanguage != null) &&
-                        <ScoreIndicator
+                        <NumberIndicator
+                            number={details.biasedLanguage.score}
                             title={INDICATORS.biasedLanguage.title}
-                            score={details.biasedLanguage.score}
                             max={INDICATORS.biasedLanguage.maxScore}
-                            status={details.biasedLanguage.label}
                             description={INDICATORS.biasedLanguage.description}
                         />
                     }
                     {
                         (details.propagandaLikelihood != null) &&
-                        <ScoreIndicator
-                            title={INDICATORS.propagandaLikelihood.title}
+                        <StringIndicator
                             score={details.propagandaLikelihood.score}
-                            max={INDICATORS.propagandaLikelihood.maxScore}
-                            status={details.propagandaLikelihood.label}
+                            string={details.propagandaLikelihood.label}
+                            title={INDICATORS.propagandaLikelihood.title}
                             description={INDICATORS.propagandaLikelihood.description}
                         />
                     }
@@ -216,48 +213,44 @@ function Data({
                             details.affiliatedLinks != null &&
                             Array.isArray(details.affiliatedLinks.data)
                         ) &&
-                        <DetectedIndicator
+                        <StringIndicator
+                            score={details.affiliatedLinks.score}
+                            string={details.affiliatedLinks.label}
                             title={INDICATORS.affiliatedLinks.title}
-                            detected={!!details.affiliatedLinks.data.length}
-                            count={details.affiliatedLinks.data.length}
                             description={INDICATORS.affiliatedLinks.description}
                         />
                     }
                     {
                         (details.hateSpeech != null) &&
-                        <ScoreIndicator
-                            title={INDICATORS.hateSpeech.title}
+                        <StringIndicator
                             score={details.hateSpeech.score}
-                            max={INDICATORS.hateSpeech.maxScore}
-                            status={details.hateSpeech.label}
+                            string={details.hateSpeech.label}
+                            title={INDICATORS.hateSpeech.title}
                             description={INDICATORS.hateSpeech.description}
                         />
                     }
                     {
                         (details.offensiveLanguage != null) &&
-                        <ScoreIndicator
-                            title={INDICATORS.offensiveLanguage.title}
+                        <StringIndicator
                             score={details.offensiveLanguage.score}
-                            max={INDICATORS.offensiveLanguage.maxScore}
-                            status={details.offensiveLanguage.label}
+                            string={details.offensiveLanguage.label}
+                            title={INDICATORS.offensiveLanguage.title}
                             description={INDICATORS.offensiveLanguage.description}
                         />
                     }
                     {
                         (details.tone != null) &&
-                        <ScoreIndicator
+                        <StringIndicator
+                            string={details.tone.label}
                             title={INDICATORS.tone.title}
-                            score={details.tone.score}
-                            max={INDICATORS.tone.maxScore}
-                            status={details.tone.label}
                             description={INDICATORS.tone.description}
                         />
                     }
                     {
                         (details.readability != null) &&
-                        <ScoreIndicator
+                        <NumberIndicator
+                            number={details.readability.score}
                             title={INDICATORS.readability.title}
-                            score={details.readability.score}
                             max={INDICATORS.readability.maxScore}
                             description={INDICATORS.readability.description}
                         />
@@ -277,8 +270,8 @@ function Data({
                         !!details.affiliatedLinks.data.length
                     ) &&
                     <List
-                        title={INDICATORS.affiliatedLinks.title}
                         data={details.affiliatedLinks.data}
+                        title={INDICATORS.affiliatedLinks.title}
                         isLink={true}
                     />
                 }

@@ -10,6 +10,9 @@
   width: 100%;
   border-collapse: collapse;
   background-color: white;
+
+  /* Default value for indicators who uses --color variable. */
+  --color: #272833;
 }
 
 .head {
@@ -55,9 +58,15 @@
   background: #FFE6E6;
 }
 
-.score > .data:nth-child(2) {
-  color: var(--color);
+.score > .data:nth-child(2),
+.string > .data:nth-child(2) {
   font-weight: 700;
   font-size: .875rem;
   text-transform: uppercase;
+}
+
+.score > .data:nth-child(2),
+.number > .data:nth-child(2),
+.string > .data:nth-child(2) {
+  color: var(--color);
 }
