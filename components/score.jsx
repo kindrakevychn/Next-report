@@ -1,10 +1,16 @@
+import {
+    scoreToStatus,
+    scoreToColor,
+    scoreToDescription
+} from '../lib/valurank';
 import HoverInfo from './hover-info';
 
 import styles from './score.module.css';
 
 export default function Score({score}) {
-    let status = scoreToStatus(score);
-    let description = '';
+    const status = scoreToStatus(score);
+    const sliderColor = scoreToColor(score);
+    const description = scoreToDescription(score);
 
     // Width of text is not persistent, but we need element width
     // to calculate its left margin. We will use approximate width
@@ -12,21 +18,27 @@ export default function Score({score}) {
     // Relative to 1rem.
     let statusWidth = 0;
 
-    if (score < 35) {
-        statusWidth = 0.9;
-        description = DESCRIPTION.bad;
-    } else if (score < 65) {
-        statusWidth = 2.05;
-        description = DESCRIPTION.mediocre;
-    } else if (score < 85) {
-        statusWidth = 1.25;
-        description = DESCRIPTION.good;
-    } else {
-        statusWidth = 1.4;
-        description = DESCRIPTION.great;
-    }
+    switch (status) {
+        case "Bad":
+            statusWidth = 0.9;
+            break;
 
-    let sliderColor = scoreToColor(score);
+        case "Mediocre":
+            statusWidth = 2.05;
+            break;
+
+        case "Good":
+            statusWidth = 1.25;
+            break;
+
+        case "Great":
+            statusWidth = 1.4;
+            break;
+
+        default:
+            console.warn(`Unknown status "${status}"`);
+            break;
+    }
 
     const containerStyle = {
         '--score': score,
@@ -98,32 +110,6 @@ export default function Score({score}) {
     );
 }
 
-export function scoreToStatus(score) {
-    if (score < 35) {
-        return 'Bad';
-    } else if (score < 65) {
-        return 'Mediocre';
-    } else if (score < 85) {
-        return 'Good';
-    } else {
-        return 'Great';
-    }
-}
-
-export function scoreToColor(score) {
-    if (score < 20) {
-        return '#EE5339';
-    } else if (score < 40) {
-        return '#F38E3A';
-    } else if (score < 60) {
-        return '#F6D243';
-    } else if (score < 80) {
-        return '#CDD649';
-    } else {
-        return '#5BAE50';
-    }
-}
-
 function ScaleIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="415" height="24" viewBox="0 0 415 24" fill="none">
@@ -143,37 +129,3 @@ function ScaleIcon() {
         </svg>
     );
 }
-
-const DESCRIPTION = {
-    bad: (
-        `"Bad" means our model analyzed this article and found that it\n` +
-        "is nearly devoid of any informative value. Scores in this range\n" +
-        "are typical in fake/satire news outlets, marketing or advertising\n" +
-        `copy, pure propaganda, or conspiracy theorists' websites.\n` +
-        "Our model has no way to distinguish satire from intentionally\n" +
-        "misleading materials, and therefore penalizes both to the same\n" +
-        "degree (based on text alone)."
-    ),
-    mediocre: (
-        `"Mediocre" means our model analyzed the article and found that it\n` +
-        "mixes some informative elements with A LOT of negative persuasion\n" +
-        "techniques, aiming primarily to persuade (not inform) the reader.\n" +
-        "Scores in this range are typical in partisan or agenda-driven websites,\n" +
-        "and are often seen in some of the subtler propaganda campaigns."
-    ),
-    good: (
-        `"Good" means our model analyzed the article's text and found that it\n` +
-        "mixes informative elements with persuasive elements, aiming both to\n" +
-        "inform and to sway the reader's opinion in some direction. In other\n" +
-        "words, this article was penalized for using some unnecessary flourishes\n" +
-        "(e.g. subjective language, biased presuppositions, hyperbolic choice of\n" +
-        "words, etc) that a purely-informative article would generally avoid.\n" +
-        "Scores in this range are typical for editorials or opinion articles."
-    ),
-    great: (
-        `"Great" means our model analyzed the article's text and found that it\n` +
-        "is a) informative, and b) does not contain any negative elements that\n" +
-        "attempt to persuade or trick the reader. Scores in this range are\n" +
-        "typical for encyclopedia entries or strictly-factual news reports."
-    )
-};
