@@ -12,8 +12,6 @@ import Error from '../components/error';
 import List from '../components/list';
 import ExtensionBanner from '../components/extension-banner';
 import Indicators, {
-    DetectedIndicator,
-    ScoreIndicator,
     NumberIndicator,
     StringIndicator
 } from '../components/indicators';
