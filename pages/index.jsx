@@ -16,7 +16,8 @@ import Indicators, {
     ScoreIndicator
 } from '../components/indicators';
 import {
-    getReportData
+    getReportData,
+    INDICATORS
 } from '../lib/valurank';
 
 import buttonStyles from '../styles/button.module.css';
@@ -194,31 +195,31 @@ function Data({
                     {
                         (quality != null) &&
                         <ScoreIndicator
-                            title={'Dispassionate language'}
+                            title={INDICATORS.quality.title}
                             score={quality.score}
-                            max={100}
+                            max={INDICATORS.quality.maxScore}
                             status={quality.label}
-                            description={DESCRIPTION.quality}
+                            description={INDICATORS.quality.description}
                         />
                     }
                     {
                         (biasedLanguage != null) &&
                         <ScoreIndicator
-                            title={'Subjectivitiy'}
+                            title={INDICATORS.biasedLanguage.title}
                             score={biasedLanguage.score}
-                            max={100}
+                            max={INDICATORS.biasedLanguage.maxScore}
                             status={biasedLanguage.label}
-                            description={DESCRIPTION.biasedLanguage}
+                            description={INDICATORS.biasedLanguage.description}
                         />
                     }
                     {
                         (propagandaLikelihood != null) &&
                         <ScoreIndicator
-                            title={'Use of propaganda techniques'}
+                            title={INDICATORS.propagandaLikelihood.title}
                             score={propagandaLikelihood.score}
-                            max={100}
+                            max={INDICATORS.propagandaLikelihood.maxScore}
                             status={propagandaLikelihood.label}
-                            description={DESCRIPTION.propagandaLikelihood}
+                            description={INDICATORS.propagandaLikelihood.description}
                         />
                     }
                     {
@@ -227,47 +228,47 @@ function Data({
                             Array.isArray(affiliatedLinks.data)
                         ) &&
                         <DetectedIndicator
-                            title={'Affiliate links'}
+                            title={INDICATORS.affiliatedLinks.title}
                             detected={!!affiliatedLinks.data.length}
                             count={affiliatedLinks.data.length}
-                            description={DESCRIPTION.affiliatedLinks}
+                            description={INDICATORS.affiliatedLinks.description}
                         />
                     }
                     {
                         (hateSpeech != null) &&
                         <ScoreIndicator
-                            title={'Hate speech'}
+                            title={INDICATORS.hateSpeech.title}
                             score={hateSpeech.score}
-                            max={100}
+                            max={INDICATORS.hateSpeech.maxScore}
                             status={hateSpeech.label}
                         />
                     }
                     {
                         (offensiveLanguage != null) &&
                         <ScoreIndicator
-                            title={'Offensive language'}
+                            title={INDICATORS.offensiveLanguage.title}
                             score={offensiveLanguage.score}
-                            max={100}
+                            max={INDICATORS.offensiveLanguage.maxScore}
                             status={offensiveLanguage.label}
-                            description={DESCRIPTION.offensiveLanguage}
+                            description={INDICATORS.offensiveLanguage.description}
                         />
                     }
                     {
                         (tone != null) &&
                         <ScoreIndicator
-                            title={'Tone'}
+                            title={INDICATORS.tone.title}
                             score={tone.score}
-                            max={100}
+                            max={INDICATORS.tone.maxScore}
                             status={tone.label}
                         />
                     }
                     {
                         (readability != null) &&
                         <ScoreIndicator
-                            title={'Language complexity'}
+                            title={INDICATORS.readability.title}
                             score={readability.score}
-                            max={100}
-                            description={DESCRIPTION.readability}
+                            max={INDICATORS.readability.maxScore}
+                            description={INDICATORS.readability.description}
                         />
                     }
                 </Indicators>
@@ -285,7 +286,7 @@ function Data({
                         !!affiliatedLinks.data.length
                     ) &&
                     <List
-                        title={"Affiliated links"}
+                        title={INDICATORS.affiliatedLinks.title}
                         data={affiliatedLinks.data}
                         isLink={true}
                     />
@@ -300,12 +301,3 @@ function OpenInNewIcon() {
         <svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg>
     );
 }
-
-const DESCRIPTION = {
-    quality: `A supervised NLP model trained to rank articles along a continuum ranging from\npurely-informative (like encyclopedia entries) to pure-conjecture (like fake news or\nfan fiction). This score tends to have an inverse correlation with the level of\n"opinionatedness" the article's author exhibits in his/her writing, i.e. editorials and\nopinion pieces will generally score lower than factual news reports.`,
-    biasedLanguage: `A supervised NLP model trained on a dataset of wikipedia edits rejected for being subjective\nor exhibiting bias. The scale here is inverted, i.e. a higher score means LESS subjectivity/bias.`,
-    propagandaLikelihood: `A supervised NLP model trained on the QCRI dataset of known 17 known propaganda techniques\nthat are used by repressive governments and state news agencies. The scale here is inverted,\ni.e. a higher score means LOWER likelihood that propaganda techniques were used by the author.`,
-    affiliatedLinks: `The number of affiliate links on the page (i.e. links that will take the reader to the\nlanding page of an online store or commercial service, and from which the writer\nwill receive an affiliate fee or other commercial incentive). Any number other than 0\ngenerally indicates that the writer of the article has a financial interest and does not\nmerely seek to inform the reader.`,
-    offensiveLanguage: `A supervised NLP model trained to detect offensive language\nin all its common varieties - insults, threats, racism, etc.`,
-    readability: `A measurement of the complexity of the language used. This model roughly\ncorresponds to the "grade-level" ranking used by many creator tools, but has\nbeen calibrated to work better for the type of content generally found online.`
-};
