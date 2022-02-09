@@ -215,3 +215,57 @@ export function NumberIndicator({
         </tr>
     );
 }
+
+export function StringIndicator({
+    title,
+    string,
+    description,
+    score
+}) {
+    title = title || '';
+    string = string || '';
+
+    let color = '';
+
+    if (score != null) {
+        color = scoreToColor(score);
+    }
+
+    const data = [
+        title,
+        string
+    ];
+
+    return (
+        <tr
+            className={clsx(
+                styles.row,
+                styles.string
+            )}
+            style={{
+                '--color': color
+            }}
+        >
+            {
+                data.map((value, i) => (
+                    <td
+                        className={styles.data}
+                        key={`${i}-${value}`}
+                    >
+                        <span
+                            className={styles.text}
+                        >
+                            {value}
+                            {
+                                (i === 0) && description &&
+                                <HoverInfo
+                                    text={description}
+                                />
+                            }
+                        </span>
+                    </td>
+                ))
+            }
+        </tr>
+    );
+}
