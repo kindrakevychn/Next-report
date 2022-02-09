@@ -14,7 +14,8 @@ import ExtensionBanner from '../components/extension-banner';
 import Indicators, {
     DetectedIndicator,
     ScoreIndicator,
-    NumberIndicator
+    NumberIndicator,
+    StringIndicator
 } from '../components/indicators';
 import {
     getReportData,
@@ -202,11 +203,10 @@ function Data({
                     }
                     {
                         (details.propagandaLikelihood != null) &&
-                        <ScoreIndicator
+                        <StringIndicator
                             title={INDICATORS.propagandaLikelihood.title}
                             score={details.propagandaLikelihood.score}
-                            max={INDICATORS.propagandaLikelihood.maxScore}
-                            status={details.propagandaLikelihood.label}
+                            string={details.propagandaLikelihood.label}
                             description={INDICATORS.propagandaLikelihood.description}
                         />
                     }
@@ -215,40 +215,36 @@ function Data({
                             details.affiliatedLinks != null &&
                             Array.isArray(details.affiliatedLinks.data)
                         ) &&
-                        <DetectedIndicator
+                        <StringIndicator
                             title={INDICATORS.affiliatedLinks.title}
-                            detected={!!details.affiliatedLinks.data.length}
-                            count={details.affiliatedLinks.data.length}
+                            score={details.affiliatedLinks.score}
+                            string={details.affiliatedLinks.label}
                             description={INDICATORS.affiliatedLinks.description}
                         />
                     }
                     {
                         (details.hateSpeech != null) &&
-                        <ScoreIndicator
+                        <StringIndicator
                             title={INDICATORS.hateSpeech.title}
                             score={details.hateSpeech.score}
-                            max={INDICATORS.hateSpeech.maxScore}
-                            status={details.hateSpeech.label}
+                            string={details.hateSpeech.label}
                             description={INDICATORS.hateSpeech.description}
                         />
                     }
                     {
                         (details.offensiveLanguage != null) &&
-                        <ScoreIndicator
+                        <StringIndicator
                             title={INDICATORS.offensiveLanguage.title}
                             score={details.offensiveLanguage.score}
-                            max={INDICATORS.offensiveLanguage.maxScore}
-                            status={details.offensiveLanguage.label}
+                            string={details.offensiveLanguage.label}
                             description={INDICATORS.offensiveLanguage.description}
                         />
                     }
                     {
                         (details.tone != null) &&
-                        <ScoreIndicator
+                        <StringIndicator
                             title={INDICATORS.tone.title}
-                            score={details.tone.score}
-                            max={INDICATORS.tone.maxScore}
-                            status={details.tone.label}
+                            string={details.tone.label}
                             description={INDICATORS.tone.description}
                         />
                     }
