@@ -8,8 +8,9 @@ import HoverInfo from './hover-info';
 import styles from './score.module.css';
 
 export default function Score({score}) {
-    let status = scoreToStatus(score);
-    let description = scoreToDescription(score);
+    const status = scoreToStatus(score);
+    const sliderColor = scoreToColor(score);
+    const description = scoreToDescription(score);
 
     // Width of text is not persistent, but we need element width
     // to calculate its left margin. We will use approximate width
@@ -17,17 +18,27 @@ export default function Score({score}) {
     // Relative to 1rem.
     let statusWidth = 0;
 
-    if (score < 35) {
-        statusWidth = 0.9;
-    } else if (score < 65) {
-        statusWidth = 2.05;
-    } else if (score < 85) {
-        statusWidth = 1.25;
-    } else {
-        statusWidth = 1.4;
-    }
+    switch (status) {
+        case "Bad":
+            statusWidth = 0.9;
+            break;
 
-    let sliderColor = scoreToColor(score);
+        case "Mediocre":
+            statusWidth = 2.05;
+            break;
+
+        case "Good":
+            statusWidth = 1.25;
+            break;
+
+        case "Great":
+            statusWidth = 1.4;
+            break;
+
+        default:
+            console.warn(`Unknown status "${status}"`);
+            break;
+    }
 
     const containerStyle = {
         '--score': score,
