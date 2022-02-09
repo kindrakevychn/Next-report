@@ -16,7 +16,8 @@ import Indicators, {
     ScoreIndicator
 } from '../components/indicators';
 import {
-    getReportData
+    getReportData,
+    INDICATORS
 } from '../lib/valurank';
 
 import buttonStyles from '../styles/button.module.css';
@@ -172,17 +173,6 @@ function Data({
     score,
     details
 }) {
-    const {
-        quality,
-        biasedLanguage,
-        propagandaLikelihood,
-        affiliatedLinks,
-        hateSpeech,
-        offensiveLanguage,
-        tone,
-        readability
-    } = details;
-
     return (
         <div
             className={reportStyles.row2}
@@ -192,82 +182,82 @@ function Data({
             >
                 <Indicators>
                     {
-                        (quality != null) &&
+                        (details.quality != null) &&
                         <ScoreIndicator
-                            title={'Dispassionate language'}
-                            score={quality.score}
-                            max={100}
-                            status={quality.label}
-                            description={DESCRIPTION.quality}
+                            title={INDICATORS.quality.title}
+                            score={details.quality.score}
+                            max={INDICATORS.quality.maxScore}
+                            status={details.quality.label}
+                            description={INDICATORS.quality.description}
                         />
                     }
                     {
-                        (biasedLanguage != null) &&
+                        (details.biasedLanguage != null) &&
                         <ScoreIndicator
-                            title={'Subjectivitiy'}
-                            score={biasedLanguage.score}
-                            max={100}
-                            status={biasedLanguage.label}
-                            description={DESCRIPTION.biasedLanguage}
+                            title={INDICATORS.biasedLanguage.title}
+                            score={details.biasedLanguage.score}
+                            max={INDICATORS.biasedLanguage.maxScore}
+                            status={details.biasedLanguage.label}
+                            description={INDICATORS.biasedLanguage.description}
                         />
                     }
                     {
-                        (propagandaLikelihood != null) &&
+                        (details.propagandaLikelihood != null) &&
                         <ScoreIndicator
-                            title={'Use of propaganda techniques'}
-                            score={propagandaLikelihood.score}
-                            max={100}
-                            status={propagandaLikelihood.label}
-                            description={DESCRIPTION.propagandaLikelihood}
+                            title={INDICATORS.propagandaLikelihood.title}
+                            score={details.propagandaLikelihood.score}
+                            max={INDICATORS.propagandaLikelihood.maxScore}
+                            status={details.propagandaLikelihood.label}
+                            description={INDICATORS.propagandaLikelihood.description}
                         />
                     }
                     {
                         (
-                            affiliatedLinks != null &&
-                            Array.isArray(affiliatedLinks.data)
+                            details.affiliatedLinks != null &&
+                            Array.isArray(details.affiliatedLinks.data)
                         ) &&
                         <DetectedIndicator
-                            title={'Affiliate links'}
-                            detected={!!affiliatedLinks.data.length}
-                            count={affiliatedLinks.data.length}
-                            description={DESCRIPTION.affiliatedLinks}
+                            title={INDICATORS.affiliatedLinks.title}
+                            detected={!!details.affiliatedLinks.data.length}
+                            count={details.affiliatedLinks.data.length}
+                            description={INDICATORS.affiliatedLinks.description}
                         />
                     }
                     {
-                        (hateSpeech != null) &&
+                        (details.hateSpeech != null) &&
                         <ScoreIndicator
-                            title={'Hate speech'}
-                            score={hateSpeech.score}
-                            max={100}
-                            status={hateSpeech.label}
+                            title={INDICATORS.hateSpeech.title}
+                            score={details.hateSpeech.score}
+                            max={INDICATORS.hateSpeech.maxScore}
+                            status={details.hateSpeech.label}
                         />
                     }
                     {
-                        (offensiveLanguage != null) &&
+                        (details.offensiveLanguage != null) &&
                         <ScoreIndicator
-                            title={'Offensive language'}
-                            score={offensiveLanguage.score}
-                            max={100}
-                            status={offensiveLanguage.label}
-                            description={DESCRIPTION.offensiveLanguage}
+                            title={INDICATORS.offensiveLanguage.title}
+                            score={details.offensiveLanguage.score}
+                            max={INDICATORS.offensiveLanguage.maxScore}
+                            status={details.offensiveLanguage.label}
+                            description={INDICATORS.offensiveLanguage.description}
                         />
                     }
                     {
-                        (tone != null) &&
+                        (details.tone != null) &&
                         <ScoreIndicator
-                            title={'Tone'}
-                            score={tone.score}
-                            max={100}
-                            status={tone.label}
+                            title={INDICATORS.tone.title}
+                            score={details.tone.score}
+                            max={INDICATORS.tone.maxScore}
+                            status={details.tone.label}
                         />
                     }
                     {
-                        (readability != null) &&
+                        (details.readability != null) &&
                         <ScoreIndicator
-                            title={'Language complexity'}
-                            score={readability.score}
-                            max={100}
-                            description={DESCRIPTION.readability}
+                            title={INDICATORS.readability.title}
+                            score={details.readability.score}
+                            max={INDICATORS.readability.maxScore}
+                            description={INDICATORS.readability.description}
                         />
                     }
                 </Indicators>
@@ -280,13 +270,13 @@ function Data({
                 />
                 {
                     (
-                        affiliatedLinks != null &&
-                        Array.isArray(affiliatedLinks.data) &&
-                        !!affiliatedLinks.data.length
+                        details.affiliatedLinks != null &&
+                        Array.isArray(details.affiliatedLinks.data) &&
+                        !!details.affiliatedLinks.data.length
                     ) &&
                     <List
-                        title={"Affiliated links"}
-                        data={affiliatedLinks.data}
+                        title={INDICATORS.affiliatedLinks.title}
+                        data={details.affiliatedLinks.data}
                         isLink={true}
                     />
                 }
@@ -300,12 +290,3 @@ function OpenInNewIcon() {
         <svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg>
     );
 }
-
-const DESCRIPTION = {
-    quality: `A supervised NLP model trained to rank articles along a continuum ranging from\npurely-informative (like encyclopedia entries) to pure-conjecture (like fake news or\nfan fiction). This score tends to have an inverse correlation with the level of\n"opinionatedness" the article's author exhibits in his/her writing, i.e. editorials and\nopinion pieces will generally score lower than factual news reports.`,
-    biasedLanguage: `A supervised NLP model trained on a dataset of wikipedia edits rejected for being subjective\nor exhibiting bias. The scale here is inverted, i.e. a higher score means LESS subjectivity/bias.`,
-    propagandaLikelihood: `A supervised NLP model trained on the QCRI dataset of known 17 known propaganda techniques\nthat are used by repressive governments and state news agencies. The scale here is inverted,\ni.e. a higher score means LOWER likelihood that propaganda techniques were used by the author.`,
-    affiliatedLinks: `The number of affiliate links on the page (i.e. links that will take the reader to the\nlanding page of an online store or commercial service, and from which the writer\nwill receive an affiliate fee or other commercial incentive). Any number other than 0\ngenerally indicates that the writer of the article has a financial interest and does not\nmerely seek to inform the reader.`,
-    offensiveLanguage: `A supervised NLP model trained to detect offensive language\nin all its common varieties - insults, threats, racism, etc.`,
-    readability: `A measurement of the complexity of the language used. This model roughly\ncorresponds to the "grade-level" ranking used by many creator tools, but has\nbeen calibrated to work better for the type of content generally found online.`
-};
