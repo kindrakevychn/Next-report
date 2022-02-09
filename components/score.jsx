@@ -1,3 +1,7 @@
+import {
+    scoreToStatus,
+    scoreToColor
+} from '../lib/valurank';
 import HoverInfo from './hover-info';
 
 import styles from './score.module.css';
@@ -96,32 +100,6 @@ export default function Score({score}) {
             </div>
         </div>
     );
-}
-
-export function scoreToStatus(score) {
-    if (score < 35) {
-        return 'Bad';
-    } else if (score < 65) {
-        return 'Mediocre';
-    } else if (score < 85) {
-        return 'Good';
-    } else {
-        return 'Great';
-    }
-}
-
-export function scoreToColor(score) {
-    if (score < 20) {
-        return '#EE5339';
-    } else if (score < 40) {
-        return '#F38E3A';
-    } else if (score < 60) {
-        return '#F6D243';
-    } else if (score < 80) {
-        return '#CDD649';
-    } else {
-        return '#5BAE50';
-    }
 }
 
 function ScaleIcon() {

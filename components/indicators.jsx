@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import {
     scoreToColor,
     scoreToStatus
-} from './score';
+} from '../lib/valurank';
 import HoverInfo from './hover-info';
 
 import styles from './indicators.module.css';
