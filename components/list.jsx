@@ -1,10 +1,15 @@
+import {
+    isAbsoluteURL
+} from '../lib/utils';
+
 import buttonStyles from '../styles/button.module.css';
 import styles from './list.module.css';
 
 export default function List({
     title,
     data,
-    isLink
+    isLink,
+    isAbsoluteLink
 }) {
     const items = data.map((value, i) => {
         const key = `${i}-${value}`;
@@ -14,13 +19,17 @@ export default function List({
             shortValue = `${shortValue.substring(0, 40)}...`;
         }
 
+        if (isAbsoluteLink && !isAbsoluteURL(value)) {
+            value = `https://${value}`;
+        }
+
         return (
             <div
                 className={styles.item}
                 key={key}
             >
                 {
-                    isLink ?
+                    isLink || isAbsoluteLink ?
                     <a
                         className={buttonStyles.button}
                         href={value}
