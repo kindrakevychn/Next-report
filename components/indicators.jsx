@@ -158,20 +158,16 @@ export function NumberIndicator({
     title,
     number,
     max,
-    description
+    description,
+    color
 }) {
     title = title || '';
     number = number || -1;
 
     let numberStr = '';
-    let color = '';
 
     if (max != null) {
         numberStr = `${number}/${max}`;
-
-        if (max <= 100) {
-            color = scoreToColor(number);
-        }
     } else {
         numberStr = String(number);
     }
@@ -219,16 +215,10 @@ export function StringIndicator({
     title,
     string,
     description,
-    score
+    color
 }) {
     title = title || '';
     string = string || '';
-
-    let color = '';
-
-    if (score != null) {
-        color = scoreToColor(score);
-    }
 
     const data = [
         title,
