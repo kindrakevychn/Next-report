@@ -255,6 +255,18 @@ function Data({
                             description={INDICATORS.readability.description}
                         />
                     }
+                    {
+                        (
+                            details.externalReferences != null &&
+                            Array.isArray(details.externalReferences.data)
+                        ) &&
+                        <StringIndicator
+                            score={details.externalReferences.score}
+                            string={details.externalReferences.label}
+                            title={INDICATORS.externalReferences.title}
+                            description={INDICATORS.externalReferences.description}
+                        />
+                    }
                 </Indicators>
             </div>
             <div
@@ -272,6 +284,18 @@ function Data({
                     <List
                         data={details.affiliatedLinks.data}
                         title={INDICATORS.affiliatedLinks.title}
+                        isLink={true}
+                    />
+                }
+                {
+                    (
+                        details.externalReferences != null &&
+                        Array.isArray(details.externalReferences.data) &&
+                        !!details.externalReferences.data.length
+                    ) &&
+                    <List
+                        data={details.externalReferences.data}
+                        title={INDICATORS.externalReferences.title}
                         isLink={true}
                     />
                 }
