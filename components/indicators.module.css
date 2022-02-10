@@ -59,9 +59,10 @@
 }
 
 .score > .data:nth-child(2),
+.number > .data:nth-child(2),
 .string > .data:nth-child(2) {
-  font-weight: 700;
-  font-size: .875rem;
+  font-weight: 500;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
