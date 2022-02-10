@@ -205,6 +205,7 @@ function Data({
                             string={details.propagandaLikelihood.label}
                             title={INDICATORS.propagandaLikelihood.title}
                             description={INDICATORS.propagandaLikelihood.description}
+                            color={INDICATORS.propagandaLikelihood.scoreToColor(details.propagandaLikelihood.score)}
                         />
                     }
                     {
@@ -216,6 +217,7 @@ function Data({
                             string={details.affiliatedLinks.label}
                             title={INDICATORS.affiliatedLinks.title}
                             description={INDICATORS.affiliatedLinks.description}
+                            color={INDICATORS.affiliatedLinks.scoreToColor(details.affiliatedLinks.score)}
                         />
                     }
                     {
@@ -224,6 +226,7 @@ function Data({
                             string={details.hateSpeech.label}
                             title={INDICATORS.hateSpeech.title}
                             description={INDICATORS.hateSpeech.description}
+                            color={INDICATORS.hateSpeech.scoreToColor(details.hateSpeech.score)}
                         />
                     }
                     {
@@ -232,6 +235,7 @@ function Data({
                             string={details.offensiveLanguage.label}
                             title={INDICATORS.offensiveLanguage.title}
                             description={INDICATORS.offensiveLanguage.description}
+                            color={INDICATORS.offensiveLanguage.scoreToColor(details.offensiveLanguage.score)}
                         />
                     }
                     {
@@ -260,6 +264,7 @@ function Data({
                             string={details.externalReferences.label}
                             title={INDICATORS.externalReferences.title}
                             description={INDICATORS.externalReferences.description}
+                            color={INDICATORS.externalReferences.scoreToColor(details.externalReferences.score)}
                         />
                     }
                     {
@@ -271,6 +276,7 @@ function Data({
                             string={details.sourceDiversity.label}
                             title={INDICATORS.sourceDiversity.title}
                             description={INDICATORS.sourceDiversity.description}
+                            color={INDICATORS.sourceDiversity.scoreToColor(details.sourceDiversity.score)}
                         />
                     }
                 </Indicators>
