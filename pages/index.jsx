@@ -320,7 +320,7 @@ function Data({
                     <List
                         data={details.sourceDiversity.data}
                         title={INDICATORS.sourceDiversity.title}
-                        isLink={true}
+                        isAbsoluteLink={true}
                     />
                 }
             </div>
