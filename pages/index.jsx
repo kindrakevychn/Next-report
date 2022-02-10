@@ -267,6 +267,18 @@ function Data({
                             description={INDICATORS.externalReferences.description}
                         />
                     }
+                    {
+                        (
+                            details.sourceDiversity != null &&
+                            Array.isArray(details.sourceDiversity.data)
+                        ) &&
+                        <StringIndicator
+                            score={details.sourceDiversity.score}
+                            string={details.sourceDiversity.label}
+                            title={INDICATORS.sourceDiversity.title}
+                            description={INDICATORS.sourceDiversity.description}
+                        />
+                    }
                 </Indicators>
             </div>
             <div
@@ -296,6 +308,18 @@ function Data({
                     <List
                         data={details.externalReferences.data}
                         title={INDICATORS.externalReferences.title}
+                        isLink={true}
+                    />
+                }
+                {
+                    (
+                        details.sourceDiversity != null &&
+                        Array.isArray(details.sourceDiversity.data) &&
+                        !!details.sourceDiversity.data.length
+                    ) &&
+                    <List
+                        data={details.sourceDiversity.data}
+                        title={INDICATORS.sourceDiversity.title}
                         isLink={true}
                     />
                 }
