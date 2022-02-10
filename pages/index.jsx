@@ -200,33 +200,11 @@ function Data({
                         />
                     }
                     {
-                        (details.propagandaLikelihood != null) &&
+                        (details.tone != null) &&
                         <StringIndicator
-                            string={details.propagandaLikelihood.label}
-                            title={INDICATORS.propagandaLikelihood.title}
-                            description={INDICATORS.propagandaLikelihood.description}
-                            color={INDICATORS.propagandaLikelihood.scoreToColor(details.propagandaLikelihood.score)}
-                        />
-                    }
-                    {
-                        (
-                            details.affiliatedLinks != null &&
-                            Array.isArray(details.affiliatedLinks.data)
-                        ) &&
-                        <StringIndicator
-                            string={details.affiliatedLinks.label}
-                            title={INDICATORS.affiliatedLinks.title}
-                            description={INDICATORS.affiliatedLinks.description}
-                            color={INDICATORS.affiliatedLinks.scoreToColor(details.affiliatedLinks.score)}
-                        />
-                    }
-                    {
-                        (details.hateSpeech != null) &&
-                        <StringIndicator
-                            string={details.hateSpeech.label}
-                            title={INDICATORS.hateSpeech.title}
-                            description={INDICATORS.hateSpeech.description}
-                            color={INDICATORS.hateSpeech.scoreToColor(details.hateSpeech.score)}
+                            string={details.tone.label}
+                            title={INDICATORS.tone.title}
+                            description={INDICATORS.tone.description}
                         />
                     }
                     {
@@ -239,11 +217,12 @@ function Data({
                         />
                     }
                     {
-                        (details.tone != null) &&
+                        (details.hateSpeech != null) &&
                         <StringIndicator
-                            string={details.tone.label}
-                            title={INDICATORS.tone.title}
-                            description={INDICATORS.tone.description}
+                            string={details.hateSpeech.label}
+                            title={INDICATORS.hateSpeech.title}
+                            description={INDICATORS.hateSpeech.description}
+                            color={INDICATORS.hateSpeech.scoreToColor(details.hateSpeech.score)}
                         />
                     }
                     {
@@ -253,6 +232,15 @@ function Data({
                             title={INDICATORS.readability.title}
                             max={INDICATORS.readability.maxScore}
                             description={INDICATORS.readability.description}
+                        />
+                    }
+                    {
+                        (details.propagandaLikelihood != null) &&
+                        <StringIndicator
+                            string={details.propagandaLikelihood.label}
+                            title={INDICATORS.propagandaLikelihood.title}
+                            description={INDICATORS.propagandaLikelihood.description}
+                            color={INDICATORS.propagandaLikelihood.scoreToColor(details.propagandaLikelihood.score)}
                         />
                     }
                     {
@@ -279,6 +267,18 @@ function Data({
                             color={INDICATORS.sourceDiversity.scoreToColor(details.sourceDiversity.score)}
                         />
                     }
+                    {
+                        (
+                            details.affiliatedLinks != null &&
+                            Array.isArray(details.affiliatedLinks.data)
+                        ) &&
+                        <StringIndicator
+                            string={details.affiliatedLinks.label}
+                            title={INDICATORS.affiliatedLinks.title}
+                            description={INDICATORS.affiliatedLinks.description}
+                            color={INDICATORS.affiliatedLinks.scoreToColor(details.affiliatedLinks.score)}
+                        />
+                    }
                 </Indicators>
             </div>
             <div
@@ -287,18 +287,6 @@ function Data({
                 <Score
                     score={score}
                 />
-                {
-                    (
-                        details.affiliatedLinks != null &&
-                        Array.isArray(details.affiliatedLinks.data) &&
-                        !!details.affiliatedLinks.data.length
-                    ) &&
-                    <List
-                        data={details.affiliatedLinks.data}
-                        title={INDICATORS.affiliatedLinks.title}
-                        isLink={true}
-                    />
-                }
                 {
                     (
                         details.externalReferences != null &&
@@ -321,6 +309,18 @@ function Data({
                         data={details.sourceDiversity.data}
                         title={INDICATORS.sourceDiversity.title}
                         isAbsoluteLink={true}
+                    />
+                }
+                {
+                    (
+                        details.affiliatedLinks != null &&
+                        Array.isArray(details.affiliatedLinks.data) &&
+                        !!details.affiliatedLinks.data.length
+                    ) &&
+                    <List
+                        data={details.affiliatedLinks.data}
+                        title={INDICATORS.affiliatedLinks.title}
+                        isLink={true}
                     />
                 }
             </div>
