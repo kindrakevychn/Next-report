@@ -158,7 +158,8 @@ export function NumberIndicator({
     title,
     number,
     max,
-    description
+    description,
+    color
 }) {
     title = title || '';
     number = number || -1;
@@ -182,6 +183,9 @@ export function NumberIndicator({
                 styles.row,
                 styles.number
             )}
+            style={{
+                '--color': color
+            }}
         >
             {
                 data.map((value, i) => (
@@ -210,7 +214,8 @@ export function NumberIndicator({
 export function StringIndicator({
     title,
     string,
-    description
+    description,
+    color
 }) {
     title = title || '';
     string = string || '';
@@ -226,6 +231,9 @@ export function StringIndicator({
                 styles.row,
                 styles.string
             )}
+            style={{
+                '--color': color
+            }}
         >
             {
                 data.map((value, i) => (
