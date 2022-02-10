@@ -164,14 +164,9 @@ export function NumberIndicator({
     number = number || -1;
 
     let numberStr = '';
-    let color = '';
 
     if (max != null) {
         numberStr = `${number}/${max}`;
-
-        if (max <= 100) {
-            color = scoreToColor(number);
-        }
     } else {
         numberStr = String(number);
     }
@@ -187,9 +182,6 @@ export function NumberIndicator({
                 styles.row,
                 styles.number
             )}
-            style={{
-                '--color': color
-            }}
         >
             {
                 data.map((value, i) => (
@@ -218,17 +210,10 @@ export function NumberIndicator({
 export function StringIndicator({
     title,
     string,
-    description,
-    score
+    description
 }) {
     title = title || '';
     string = string || '';
-
-    let color = '';
-
-    if (score != null) {
-        color = scoreToColor(score);
-    }
 
     const data = [
         title,
@@ -241,9 +226,6 @@ export function StringIndicator({
                 styles.row,
                 styles.string
             )}
-            style={{
-                '--color': color
-            }}
         >
             {
                 data.map((value, i) => (

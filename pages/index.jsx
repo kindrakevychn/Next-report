@@ -202,7 +202,6 @@ function Data({
                     {
                         (details.propagandaLikelihood != null) &&
                         <StringIndicator
-                            score={details.propagandaLikelihood.score}
                             string={details.propagandaLikelihood.label}
                             title={INDICATORS.propagandaLikelihood.title}
                             description={INDICATORS.propagandaLikelihood.description}
@@ -214,7 +213,6 @@ function Data({
                             Array.isArray(details.affiliatedLinks.data)
                         ) &&
                         <StringIndicator
-                            score={details.affiliatedLinks.score}
                             string={details.affiliatedLinks.label}
                             title={INDICATORS.affiliatedLinks.title}
                             description={INDICATORS.affiliatedLinks.description}
@@ -223,7 +221,6 @@ function Data({
                     {
                         (details.hateSpeech != null) &&
                         <StringIndicator
-                            score={details.hateSpeech.score}
                             string={details.hateSpeech.label}
                             title={INDICATORS.hateSpeech.title}
                             description={INDICATORS.hateSpeech.description}
@@ -232,7 +229,6 @@ function Data({
                     {
                         (details.offensiveLanguage != null) &&
                         <StringIndicator
-                            score={details.offensiveLanguage.score}
                             string={details.offensiveLanguage.label}
                             title={INDICATORS.offensiveLanguage.title}
                             description={INDICATORS.offensiveLanguage.description}
@@ -261,7 +257,6 @@ function Data({
                             Array.isArray(details.externalReferences.data)
                         ) &&
                         <StringIndicator
-                            score={details.externalReferences.score}
                             string={details.externalReferences.label}
                             title={INDICATORS.externalReferences.title}
                             description={INDICATORS.externalReferences.description}
@@ -273,7 +268,6 @@ function Data({
                             Array.isArray(details.sourceDiversity.data)
                         ) &&
                         <StringIndicator
-                            score={details.sourceDiversity.score}
                             string={details.sourceDiversity.label}
                             title={INDICATORS.sourceDiversity.title}
                             description={INDICATORS.sourceDiversity.description}
