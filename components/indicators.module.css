@@ -34,6 +34,10 @@
   text-align: left;
 }
 
+.dataLeftPadding {
+  padding-left: 2rem;
+}
+
 .text {
   display: flex;
   align-items: center;

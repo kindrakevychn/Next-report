@@ -209,7 +209,8 @@ export function StringIndicator({
     title,
     string,
     description,
-    color
+    color,
+    titleLeftPadding
 }) {
     const data = [
         title,
@@ -229,7 +230,11 @@ export function StringIndicator({
             {
                 data.map((value, i) => (
                     <td
-                        className={styles.data}
+                        className={clsx(
+                            styles.data,
+                            (i === 0) && titleLeftPadding &&
+                            styles.dataLeftPadding
+                        )}
                         key={`${i}-${value}`}
                     >
                         <span
