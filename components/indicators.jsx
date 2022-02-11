@@ -64,7 +64,7 @@ export function DetectedIndicator({
         'elements'
     );
     const data = [
-        title || '',
+        title,
         (detected ? 'Detected' : 'Not Detected'),
         ((count != null) ? `${count} ${elementsText}` : '')
     ];
@@ -108,9 +108,6 @@ export function ScoreIndicator({
     status,
     description
 }) {
-    title = title || '';
-    score = score || 0;
-    max = max || 0;
     status = status || scoreToStatus(score);
 
     const color = scoreToColor(score);
@@ -161,9 +158,6 @@ export function NumberIndicator({
     description,
     color
 }) {
-    title = title || '';
-    number = number || -1;
-
     let numberStr = '';
 
     if (max != null) {
@@ -217,9 +211,6 @@ export function StringIndicator({
     description,
     color
 }) {
-    title = title || '';
-    string = string || '';
-
     const data = [
         title,
         string
