@@ -200,6 +200,63 @@ function Data({
                         />
                     }
                     {
+                        <StringIndicator
+                            title={INDICATORS.languageStats.title}
+                        />
+                    }
+                    {
+                        (details.languageStats != null) &&
+                        (details.languageStats.data != null) &&
+                        (details.languageStats.data.properNouns != null) &&
+                        <StringIndicator
+                            string={INDICATORS.languageStats.toString(
+                                details.languageStats.data.properNouns
+                            )}
+                            title={INDICATORS.languageStats.data.properNouns.title}
+                            description={INDICATORS.languageStats.data.properNouns.description}
+                            titleLeftPadding={true}
+                        />
+                    }
+                    {
+                        (details.languageStats != null) &&
+                        (details.languageStats.data != null) &&
+                        (details.languageStats.data.pronouns != null) &&
+                        <StringIndicator
+                            string={INDICATORS.languageStats.toString(
+                                details.languageStats.data.pronouns
+                            )}
+                            title={INDICATORS.languageStats.data.pronouns.title}
+                            description={INDICATORS.languageStats.data.pronouns.description}
+                            titleLeftPadding={true}
+                        />
+                    }
+                    {
+                        (details.languageStats != null) &&
+                        (details.languageStats.data != null) &&
+                        (details.languageStats.data.adjectives != null) &&
+                        <StringIndicator
+                            string={INDICATORS.languageStats.toString(
+                                details.languageStats.data.adjectives
+                            )}
+                            title={INDICATORS.languageStats.data.adjectives.title}
+                            description={INDICATORS.languageStats.data.adjectives.description}
+                            titleLeftPadding={true}
+                        />
+                    }
+                    {
+                        (details.languageStats != null) &&
+                        (details.languageStats.data != null) &&
+                        (details.languageStats.data.adverbs != null) &&
+                        <StringIndicator
+                            string={INDICATORS.languageStats.toString(
+                                details.languageStats.data.adverbs
+                            )}
+                            title={INDICATORS.languageStats.data.adverbs.title}
+                            description={INDICATORS.languageStats.data.adverbs.description}
+                            titleLeftPadding={true}
+                        />
+                    }
+                    {
                         (details.tone != null) &&
                         <StringIndicator
                             string={details.tone.label}
