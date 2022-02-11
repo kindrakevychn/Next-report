@@ -235,6 +235,15 @@ function Data({
                         />
                     }
                     {
+                        (details.clickbait != null) &&
+                        <StringIndicator
+                            string={details.clickbait.label}
+                            title={INDICATORS.clickbait.title}
+                            description={INDICATORS.clickbait.description}
+                            color={INDICATORS.clickbait.scoreToColor(details.clickbait.score)}
+                        />
+                    }
+                    {
                         (details.propagandaLikelihood != null) &&
                         <StringIndicator
                             string={details.propagandaLikelihood.label}
