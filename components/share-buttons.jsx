@@ -8,6 +8,9 @@ export default function ShareButtons({
     score,
     reportURL
 }) {
+    articleTitle = articleTitle || '';
+    reportURL = reportURL || '';
+
     const urls = createURLs({
         articleTitle,
         score,
