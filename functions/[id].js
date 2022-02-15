@@ -2,6 +2,9 @@ import {
     NotFound,
     InternalServerError
 } from '../lib/response';
+import {
+    getContent
+} from '../lib/valurank';
 
 export async function onRequestGet({request, env, params, next}) {
     const url = new URL(request.url);
@@ -65,22 +68,12 @@ export async function onRequestGet({request, env, params, next}) {
  * Throws an error if API request failed (except HTTP 404).
  */
 async function getReportData(id) {
-    const response = await fetch(`https://api.valurank.com/api/content/${id}`, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json'
-        }
-    });
+    const result = await getContent(id);
 
-    if (response.status === 404) {
+    if (!result) {
         return null;
     }
 
-    if (!response.ok) {
-        throw new Error(response.statusText);
-    }
-
-    const result = await response.json();
     const data = {
         id,
         score: result.score,
