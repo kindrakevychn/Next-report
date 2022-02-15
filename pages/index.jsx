@@ -200,6 +200,9 @@ function Data({
                         />
                     }
                     {
+                        (details.languageStats != null) &&
+                        (details.languageStats.data != null) &&
+                        (Object.keys(details.languageStats.data).length !== 0) &&
                         <StringIndicator
                             title={INDICATORS.languageStats.title}
                         />
