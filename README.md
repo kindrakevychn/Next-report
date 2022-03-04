@@ -13,6 +13,7 @@
   - [Installation](#installation)
   - [Scripts](#scripts)
   - [How to make a release](#how-to-make-a-release)
+  - [How to organaize pull requests](#how-to-organaize-pull-requests)
 - [Version naming](#version-naming)
 
 ## Overview
@@ -66,6 +67,12 @@ Try to do frequent small releases instead of large infrequent ones.
 6. Fill next tag, release title, click on "Auto-generate release notes".
 7. Click on "Publish release".
 8. Specific release will refer to specific commit. Use this commit as specific version indicator. Using CF Pages console you can rollback to this commit if needed.
+
+### How to organaize pull requests
+
+Try to make one PR per one logical change. Don't commit unconnected changes into one PR. Treat PR title as a line in changelog, it should help you to organize them properly.
+
+It is recommended to request review from project maintainers. If PR introduces complex changes, it is recommended to write description in PR conversation thread.
 
 ## Version naming
 
