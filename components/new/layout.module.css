@@ -1,0 +1,13 @@
+.main > * {
+  margin-bottom: 1.5rem;
+}
+
+.main > *:last-child {
+  margin-bottom: 0;
+}
+
+.layout {
+  max-width: 800px;
+  padding: 0 1rem;
+  margin: auto;
+}

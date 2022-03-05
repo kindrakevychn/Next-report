@@ -1,0 +1,88 @@
+.container {
+  font-family: "fira sans";
+  width: 100%;
+  border-radius: 5px;
+  overflow: auto;
+  filter: drop-shadow(4px 4px 15px rgba(178, 199, 188, 0.15));
+  border: 5px solid #1c2133;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.head {
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+
+.container *:nth-child(2) {
+  border: none;
+}
+
+.row {
+  border-top: 1px solid #1c2133;
+  display: flex;
+  justify-content: space-between;
+}
+
+.boldTitle .title {
+  font-weight: 700;
+}
+
+.thickBorder {
+  border-top: 0.625rem solid #1c2133;
+}
+
+.row {
+  font-size: 1.125rem;
+  line-height: 150%;
+  padding: 0;
+  color: #272833;
+  text-align: left;
+}
+
+.dataLeftMargin {
+  margin-left: 3.5rem;
+}
+
+.detected > .value {
+  font-weight: 500;
+  color: #00bc4b;
+  text-transform: uppercase;
+}
+
+.detectedYes > .value {
+  color: #ff0000;
+  background: #ffe6e6;
+}
+
+.number > .value {
+  font-weight: bold;
+}
+
+.row > .value {
+  color: var(--color);
+}
+
+.value > span {
+  margin-left: 0.5rem;
+}
+
+.details {
+  text-align: right;
+  color: #2379c4;
+}
+
+.details > * {
+  padding: 0.3rem 0;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 660px) {
+  .dataLeftMargin {
+    margin-left: 2rem;
+  }
+}

@@ -1,0 +1,28 @@
+.container {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.container a {
+  color: #2379c4;
+  text-decoration: underline;
+}
+
+.icons {
+  margin-top: 0.75rem;
+}
+
+.icon {
+  width: 3rem;
+  height: auto;
+}
+
+.icon,
+.icon:hover {
+  transition: transform 0.15s linear;
+}

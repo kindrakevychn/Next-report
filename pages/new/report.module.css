@@ -1,0 +1,55 @@
+.subTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #272833;
+}
+
+.articleTitle {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #2379c4;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.row2 {
+  width: 100%;
+}
+
+.row2 > *:nth-child(2) {
+  flex-grow: 1;
+}
+
+.articleLink > svg {
+  width: 1.5rem;
+  height: auto;
+  fill: #272833;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+}
+
+.bannerSeparator {
+  border-top: 1px solid rgba(28, 33, 51, 0.2);
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 425px) {
+  .articleTitle {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .row2 {
+    flex-wrap: wrap;
+  }
+
+  .row2 > *:nth-child(1) {
+    width: 100%;
+  }
+}

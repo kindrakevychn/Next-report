@@ -1,0 +1,21 @@
+.container {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f6ff;
+  border-radius: 50%;
+  border: 1px solid rgba(218, 218, 218, 0.4);
+}
+
+.text {
+  margin-right: 3.8rem;
+  user-select: none;
+  font-size: 0.875rem;
+  word-break: break-all;
+}
+
+.copy {
+  display: flex;
+}
