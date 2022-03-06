@@ -20,7 +20,6 @@ export default function Index() {
 
     useEffect(() => {
         const data = getReportData();
-        console.log("data", data);
         setReportData(data);
     }, []);
 
@@ -107,7 +106,6 @@ function Share({ articleTitle, score, reportURL }) {
 }
 
 function Data({ score, details }) {
-    console.log("details", details);
     return (
         <div className={reportStyles.row2}>
             <div className={reportStyles.col}>
