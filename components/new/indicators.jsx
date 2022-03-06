@@ -63,8 +63,8 @@ export function StringIndicator({
             <div className={styles.details}>
                 {detailList.length > 0 &&
                     open &&
-                    detailList.map((detail) => (
-                        <div>
+                    detailList.map((detail, idx) => (
+                        <div key={idx}>
                             <a
                                 href={detail}
                                 target={"_blank"}
