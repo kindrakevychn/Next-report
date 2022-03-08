@@ -73,7 +73,7 @@ function Title({ articleTitle, articleURL }) {
         articleTitle = articleTitle.substring(0, 400) + "...";
     }
 
-    const domain = new URL(articleURL).hostname.replace("www.", "");
+    const domain = new URL(articleURL).hostname;
 
     return (
         <div>
@@ -82,17 +82,21 @@ function Title({ articleTitle, articleURL }) {
             </div>
             {articleTitle && (
                 <span className={reportStyles.articleTitle}>
-                    <a
-                        className={clsx(
-                            buttonStyles.button,
-                            reportStyles.articleLink
-                        )}
-                        href={articleURL ?? "#"}
-                        target={"_blank"}
-                        rel={"noreferrer noopener"}
-                    >
-                        {articleTitle}
-                    </a>
+                    {articleURL ? (
+                        <a
+                            className={clsx(
+                                buttonStyles.button,
+                                reportStyles.articleLink
+                            )}
+                            href={articleURL}
+                            target={"_blank"}
+                            rel={"noreferrer noopener"}
+                        >
+                            {articleTitle}
+                        </a>
+                    ) : (
+                        articleTitle
+                    )}
                 </span>
             )}
         </div>
