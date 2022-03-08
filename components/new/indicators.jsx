@@ -1,6 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
-import HoverInfo from "../hover-info";
+import HoverInfo from "./hover-info";
 
 import styles from "./indicators.module.css";
 
@@ -40,12 +40,9 @@ export function StringIndicator({
                     "--color": color,
                 }}
             >
-                <div className={styles.title}>
-                    {title}
-                    {/* {i === 0 && description && (
-                            <HoverInfo text={description} />
-                        )} */}
-                </div>
+                <HoverInfo text={description}>
+                    <div className={styles.title}>{title}</div>
+                </HoverInfo>
                 <div
                     className={styles.value}
                     onClick={() => setOpen((o) => !o)}
