@@ -12,17 +12,3 @@
   color: #2379c4;
   text-decoration: underline;
 }
-
-.icons {
-  margin-top: 0.75rem;
-}
-
-.icon {
-  width: 3rem;
-  height: auto;
-}
-
-.icon,
-.icon:hover {
-  transition: transform 0.15s linear;
-}

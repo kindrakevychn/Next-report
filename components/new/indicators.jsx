@@ -24,8 +24,6 @@ export function StringIndicator({
     boldTitle = false,
     detailList = [],
 }) {
-    const data = [title, value];
-
     const [open, setOpen] = useState(true);
 
     return (
@@ -42,14 +40,14 @@ export function StringIndicator({
                     "--color": color,
                 }}
             >
-                <div className={clsx(styles.title)}>
+                <div className={styles.title}>
                     {title}
                     {/* {i === 0 && description && (
                             <HoverInfo text={description} />
                         )} */}
                 </div>
                 <div
-                    className={clsx(styles.value)}
+                    className={styles.value}
                     onClick={() => setOpen((o) => !o)}
                 >
                     {value}
@@ -63,8 +61,8 @@ export function StringIndicator({
             <div className={styles.details}>
                 {detailList.length > 0 &&
                     open &&
-                    detailList.map((detail, idx) => (
-                        <div key={idx}>
+                    detailList.map((detail) => (
+                        <div key={detail}>
                             <a
                                 href={detail}
                                 target={"_blank"}

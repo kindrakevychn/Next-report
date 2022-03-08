@@ -1,16 +1,9 @@
-import {
-    scoreToStatus,
-    scoreToColor,
-    scoreToDescription,
-} from "../../lib/valurank";
-import HoverInfo from "../hover-info";
-
+import { scoreToStatus, scoreToColor } from "../../lib/valurank";
 import styles from "./score.module.css";
 
 export default function Score({ score }) {
     const status = scoreToStatus(score);
     const sliderColor = scoreToColor(score);
-    const description = scoreToDescription(score);
 
     // Width of text is not persistent, but we need element width
     // to calculate its left margin. We will use approximate width
@@ -49,10 +42,7 @@ export default function Score({ score }) {
     return (
         <div className={styles.container} style={containerStyle}>
             <div className={styles.header}>
-                <div className={styles.title}>
-                    {"Score"}
-                    <HoverInfo text={description} />
-                </div>
+                <div className={styles.title}>{"Score"}</div>
 
                 <div className={styles.score}>
                     <span className={styles.dot} />
