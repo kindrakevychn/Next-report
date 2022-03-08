@@ -1,51 +1,52 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+    Html,
+    Head,
+    Main,
+    NextScript
+} from 'next/document';
 
 export default class MyDocument extends Document {
     render() {
         const meta = {
-            title: "Valurank Report",
-            description: "Getting information in order.",
-            image: "",
+            title: 'Valurank Report',
+            description: 'Getting information in order.',
+            image: '',
         };
 
         return (
-            <Html lang={"en"}>
+            <Html lang={'en'}>
                 <Head>
-                    <meta name="robots" content="follow, index" />
-                    <meta name="description" content={meta.description} />
-                    <meta name="keywords" content="valurank, report" />
-                    <meta property="og:site_name" content={meta.title} />
-                    <meta
-                        property="og:description"
-                        content={meta.description}
-                    />
-                    <meta property="og:title" content={meta.title} />
-                    <meta property="og:image" content={meta.image} />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:site" content="@valurank" />
-                    <meta name="twitter:title" content={meta.title} />
-                    <meta
-                        name="twitter:description"
-                        content={meta.description}
-                    />
-                    <meta name="twitter:image" content={meta.image} />
+                    <meta name='robots' content='follow, index' />
+                    <meta name='description' content={meta.description} />
+                    <meta name='keywords' content='valurank, report' />
+
+                    <meta property='og:site_name' content={meta.title} />
+                    <meta property='og:description' content={meta.description} />
+                    <meta property='og:title' content={meta.title} />
+                    <meta property='og:image' content={meta.image} />
+
+                    <meta name='twitter:card' content='summary_large_image' />
+                    <meta name='twitter:site' content='@valurank' />
+                    <meta name='twitter:title' content={meta.title} />
+                    <meta name='twitter:description' content={meta.description} />
+                    <meta name='twitter:image' content={meta.image} />
 
                     <link
-                        rel="preconnect"
-                        href="https://fonts.googleapis.com"
+                        rel='preconnect'
+                        href='https://fonts.googleapis.com'
                     />
                     <link
-                        rel="preconnect"
-                        href="https://fonts.gstatic.com"
-                        crossOrigin="anonymous"
+                        rel='preconnect'
+                        href='https://fonts.gstatic.com'
+                        crossOrigin='anonymous'
                     />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
-                        rel="stylesheet"
+                        href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap'
+                        rel='stylesheet'
                     />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700;900&display=swap"
-                        rel="stylesheet"
+                        href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700;900&display=swap'
+                        rel='stylesheet'
                     />
                 </Head>
 
