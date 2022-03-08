@@ -21,7 +21,7 @@ export async function onRequestGet({request, env, params, next}) {
         return next();
     }
 
-    const assetURL = new URL('/', request.url).toString();
+    const assetURL = new URL('/new', request.url).toString();
     const assetReq = new Request(assetURL, {
         cf: request.cf // https://github.com/cloudflare/wrangler2/issues/165#issuecomment-1010840734
     });
