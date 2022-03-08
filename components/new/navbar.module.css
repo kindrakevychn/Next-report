@@ -41,11 +41,12 @@
 }
 
 @media only screen and (max-width: 660px) {
+  .title {
+    font-size: 1.5rem;
+  }
   .button {
     padding: 0.65rem 1rem;
-  }
-  .container > * {
-    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
   }
 
   .container > *:last-child {

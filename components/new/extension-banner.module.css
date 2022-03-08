@@ -12,3 +12,9 @@
   color: #2379c4;
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 660px) {
+  .container {
+    font-size: 1.25rem;
+  }
+}

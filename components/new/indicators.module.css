@@ -82,6 +82,13 @@
 }
 
 @media only screen and (max-width: 660px) {
+  .head {
+    font-size: 1.5rem;
+  }
+  .details,
+  .row {
+    font-size: 0.875rem;
+  }
   .dataLeftMargin {
     margin-left: 2rem;
   }

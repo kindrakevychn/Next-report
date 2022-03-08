@@ -8,6 +8,12 @@
   font-size: 1.75rem;
   font-weight: 500;
   color: #2379c4;
+
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .col {
   display: flex;
@@ -41,6 +47,13 @@
 @media only screen and (max-width: 425px) {
   .articleTitle {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .articleTitle,
+  .subTitle {
+    font-size: 0.875rem;
   }
 }
 
