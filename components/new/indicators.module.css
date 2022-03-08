@@ -74,7 +74,13 @@
 }
 
 .details > * {
-  padding: 0.3rem 0;
+  padding: 0.3rem 0 0 10%;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .rotate {
@@ -91,5 +97,9 @@
   }
   .dataLeftMargin {
     margin-left: 2rem;
+  }
+  .value {
+    min-width: 5.1rem;
+    text-align: right;
   }
 }

@@ -69,10 +69,6 @@ function Report({ data }) {
 }
 
 function Title({ articleTitle, articleURL }) {
-    if (articleTitle && articleTitle.length > 400) {
-        articleTitle = articleTitle.substring(0, 400) + "...";
-    }
-
     const domain = new URL(articleURL).hostname;
 
     return (

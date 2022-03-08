@@ -24,7 +24,7 @@ export function StringIndicator({
     boldTitle = false,
     detailList = [],
 }) {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     return (
         <>
@@ -68,9 +68,7 @@ export function StringIndicator({
                                 target={"_blank"}
                                 rel={"noreferrer noopener"}
                             >
-                                {detail.length > 40
-                                    ? `${detail.substring(0, 40)}...`
-                                    : detail}
+                                {detail}
                             </a>
                         </div>
                     ))}
