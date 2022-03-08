@@ -1,3 +1,10 @@
+/**
+ * NOTE:
+ * It is development page, not intended for usage in production.
+ * In further entire code from here will go in `pages/index.jsx`.
+ * This page will be deleted.
+ */
+
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import Head from "next/head";
