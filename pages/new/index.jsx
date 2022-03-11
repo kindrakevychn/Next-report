@@ -18,7 +18,6 @@ import Indicators, { StringIndicator } from "../../components/new/indicators";
 import { getReportData, INDICATORS } from "../../lib/valurank";
 
 import buttonStyles from "../../styles/button.module.css";
-import reportStyles from "./report.module.css";
 import shareStyles from "./share.module.css";
 import titleStyles from './title.module.css';
 import dataStyles from './data.module.css';
@@ -73,7 +72,6 @@ function Report({ data }) {
                 reportURL={reportURL}
             />
             <Data score={score} details={details} />
-            <div className={reportStyles.bannerSeparator} />
             <ExtensionBanner />
         </>
     );
