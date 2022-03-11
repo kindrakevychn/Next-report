@@ -5,6 +5,7 @@ import {
 import clsx from "clsx";
 import HoverInfo from "./hover-info";
 
+import buttonStyles from '../../styles/button.module.css';
 import styles from "./indicators.module.css";
 
 export default function Indicators({ children }) {
@@ -51,7 +52,10 @@ export function StringIndicator({
                 </HoverInfo>
 
                 <div
-                    className={styles.value}
+                    className={clsx(
+                        links.length > 0 && buttonStyles.button,
+                        styles.value
+                    )}
                     onClick={onValueClick}
                 >
                     {value}
@@ -71,6 +75,9 @@ export function StringIndicator({
                     links.map((link) => (
                         <div key={link}>
                             <a
+                                className={clsx(
+                                    buttonStyles.button
+                                )}
                                 href={link}
                                 target={"_blank"}
                                 rel={"noreferrer noopener"}
