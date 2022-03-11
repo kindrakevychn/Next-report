@@ -8,4 +8,13 @@
   padding: 1.375rem 3.125rem;
   color: #1c2133;
   font-size: 1.125rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: .875rem;
+  }
 }
