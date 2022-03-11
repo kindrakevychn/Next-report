@@ -290,7 +290,7 @@ function Data({ score, details }) {
                                 details.externalReferences.score
                             )}
                             thickBorder
-                            detailList={details.externalReferences.data}
+                            links={details.externalReferences.data}
                         />
                     }
                     {
@@ -303,7 +303,7 @@ function Data({ score, details }) {
                             color={INDICATORS.sourceDiversity.scoreToColor(
                                 details.sourceDiversity.score
                             )}
-                            detailList={details.sourceDiversity.data}
+                            links={details.sourceDiversity.data}
                         />
                     }
                     {
@@ -316,7 +316,7 @@ function Data({ score, details }) {
                             color={INDICATORS.affiliatedLinks.scoreToColor(
                                 details.affiliatedLinks.score
                             )}
-                            detailList={details.affiliatedLinks.data}
+                            links={details.affiliatedLinks.data}
                         />
                     }
                 </Indicators>

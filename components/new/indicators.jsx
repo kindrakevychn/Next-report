@@ -1,4 +1,7 @@
-import { useState } from "react";
+import {
+    useState,
+    useCallback
+} from "react";
 import clsx from "clsx";
 import HoverInfo from "./hover-info";
 
@@ -22,9 +25,12 @@ export function StringIndicator({
     isNumber = false,
     thickBorder = false,
     boldTitle = false,
-    detailList = [],
+    links = [],
 }) {
     const [open, setOpen] = useState(false);
+    const onValueClick = useCallback(() => {
+        setOpen((v) => !v);
+    }, []);
 
     return (
         <>
@@ -43,32 +49,37 @@ export function StringIndicator({
                 <HoverInfo text={description}>
                     <div className={styles.title}>{title}</div>
                 </HoverInfo>
+
                 <div
                     className={styles.value}
-                    onClick={() => setOpen((o) => !o)}
+                    onClick={onValueClick}
                 >
                     {value}
-                    {detailList.length > 0 && (
+                    {
+                        links.length > 0 &&
                         <span>
                             <ArrowDown rotate={open} />
                         </span>
-                    )}
+                    }
                 </div>
             </div>
-            <div className={styles.details}>
-                {detailList.length > 0 &&
+
+            <div className={styles.links}>
+                {
+                    links.length > 0 &&
                     open &&
-                    detailList.map((detail) => (
-                        <div key={detail}>
+                    links.map((link) => (
+                        <div key={link}>
                             <a
-                                href={detail}
+                                href={link}
                                 target={"_blank"}
                                 rel={"noreferrer noopener"}
                             >
-                                {detail}
+                                {link}
                             </a>
                         </div>
-                    ))}
+                    ))
+                }
             </div>
         </>
     );
@@ -82,7 +93,9 @@ function ArrowDown({ rotate }) {
             viewBox="0 0 14 8"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={rotate && styles.rotate}
+            className={clsx(
+                rotate && styles.rotate
+            )}
         >
             <path d="M7 8L0.937822 0.5L13.0622 0.500001L7 8Z" fill="#2379C4" />
         </svg>
