@@ -32,7 +32,6 @@ export default function Navbar() {
                 <a
                     className={clsx(
                         buttonStyles.button,
-                        styles.link,
                         styles.button
                     )}
                     href={link.url}
