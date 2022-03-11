@@ -59,6 +59,8 @@
 .links {
   text-align: right;
   color: #2379c4;
+  max-height: 10rem;
+  overflow: auto;
 }
 
 .links > * {
