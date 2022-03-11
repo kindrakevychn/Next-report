@@ -3,6 +3,9 @@ import {
     useCallback
 } from "react";
 import clsx from "clsx";
+import {
+    isAbsoluteURL
+} from '../lib/utils';
 import HoverInfo from "./hover-info";
 
 import buttonStyles from '../styles/button.module.css';
@@ -27,6 +30,7 @@ export function StringIndicator({
     thickBorder = false,
     boldTitle = false,
     links = [],
+    convertToAbsoluteLinks
 }) {
     const [open, setOpen] = useState(false);
     const onValueClick = useCallback(() => {
@@ -72,20 +76,28 @@ export function StringIndicator({
                 {
                     links.length > 0 &&
                     open &&
-                    links.map((link) => (
-                        <div key={link}>
-                            <a
-                                className={clsx(
-                                    buttonStyles.button
-                                )}
-                                href={link}
-                                target={"_blank"}
-                                rel={"noreferrer noopener"}
-                            >
-                                {link}
-                            </a>
-                        </div>
-                    ))
+                    links.map((link) => {
+                        let href = link;
+
+                        if (convertToAbsoluteLinks && !isAbsoluteURL(href)) {
+                            href = `https://${href}`;
+                        }
+
+                        return (
+                            <div key={link}>
+                                <a
+                                    className={clsx(
+                                        buttonStyles.button
+                                    )}
+                                    href={href}
+                                    target={"_blank"}
+                                    rel={"noreferrer noopener"}
+                                >
+                                    {link}
+                                </a>
+                            </div>
+                        );
+                    })
                 }
             </div>
         </>

@@ -277,6 +277,7 @@ function Data({ score, details }) {
                             description={INDICATORS.sourceDiversity.description}
                             color={INDICATORS.sourceDiversity.scoreToColor(details.sourceDiversity.score)}
                             links={details.sourceDiversity.data}
+                            convertToAbsoluteLinks
                         />
                     }
                     {
