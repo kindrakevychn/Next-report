@@ -4,14 +4,3 @@
   flex-direction: row-reverse;
   gap: 1rem;
 }
-
-.action {
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.separator {
-  width: 1.25rem;
-  border-top: 1px solid rgba(28, 33, 51, 0.2);
-  transform: rotate(90deg);
-}
