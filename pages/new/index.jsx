@@ -93,8 +93,7 @@ function Title({ articleTitle, articleURL }) {
                     articleURL &&
                     <a
                         className={clsx(
-                            buttonStyles.button,
-                            titleStyles.link
+                            buttonStyles.button
                         )}
                         href={articleURL}
                         target={"_blank"}

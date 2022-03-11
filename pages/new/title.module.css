@@ -16,15 +16,6 @@
   text-overflow: ellipsis;
 }
 
-.link > svg {
-  width: 1.5rem;
-  height: auto;
-  fill: #272833;
-  vertical-align: middle;
-  margin-left: 0.25rem;
-}
-
-
 @media only screen and (max-width: 425px) {
   .articleTitle {
     display: block;
