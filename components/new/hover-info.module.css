@@ -3,7 +3,7 @@
   display: inline-block;
 }
 
-.container span {
+.text {
   visibility: hidden;
 
   background: #f4f6ff;
@@ -28,6 +28,6 @@
   margin-left: -60px;
 }
 
-.container:hover span {
+.container:hover .text {
   visibility: visible;
 }

@@ -4,7 +4,11 @@ export default function HoverInfo({ text, children }) {
     return (
         <div className={styles.container}>
             {children}
-            <span>{text}</span>
+            <span
+                className={styles.text}
+            >
+                {text}
+            </span>
         </div>
     );
 }
