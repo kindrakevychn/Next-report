@@ -1,0 +1,23 @@
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.row2 {
+  width: 100%;
+}
+
+.row2 > *:nth-child(2) {
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .row2 {
+    flex-wrap: wrap;
+  }
+
+  .row2 > *:nth-child(1) {
+    width: 100%;
+  }
+}

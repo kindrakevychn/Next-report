@@ -20,6 +20,8 @@ import { getReportData, INDICATORS } from "../../lib/valurank";
 import buttonStyles from "../../styles/button.module.css";
 import reportStyles from "./report.module.css";
 import shareStyles from "./share.module.css";
+import titleStyles from './title.module.css';
+import dataStyles from './data.module.css';
 
 export default function Index() {
     const [error, setError] = useState("");
@@ -82,17 +84,17 @@ function Title({ articleTitle, articleURL }) {
 
     return (
         <div>
-            <div className={reportStyles.subTitle}>
+            <div className={titleStyles.subTitle}>
                 {`Report for the ${domain} article:`}
             </div>
 
-            <span className={reportStyles.articleTitle}>
+            <span className={titleStyles.articleTitle}>
                 {
                     articleURL &&
                     <a
                         className={clsx(
                             buttonStyles.button,
-                            reportStyles.articleLink
+                            titleStyles.link
                         )}
                         href={articleURL}
                         target={"_blank"}
@@ -125,8 +127,8 @@ function Share({ articleTitle, score, reportURL }) {
 
 function Data({ score, details }) {
     return (
-        <div className={reportStyles.row2}>
-            <div className={reportStyles.col}>
+        <div className={dataStyles.row2}>
+            <div className={dataStyles.col}>
                 <Indicators>
                     {details.quality != null && (
                         <StringIndicator
