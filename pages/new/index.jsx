@@ -136,7 +136,8 @@ function Data({ score, details }) {
         <div className={dataStyles.row2}>
             <div className={dataStyles.col}>
                 <Indicators>
-                    {details.quality != null && (
+                    {
+                        details.quality != null &&
                         <StringIndicator
                             value={details.quality.score}
                             title={INDICATORS.quality.title}
@@ -145,8 +146,9 @@ function Data({ score, details }) {
                             boldTitle
                             isNumber
                         />
-                    )}
-                    {details.biasedLanguage != null && (
+                    }
+                    {
+                        details.biasedLanguage != null &&
                         <StringIndicator
                             value={details.biasedLanguage.score}
                             title={INDICATORS.biasedLanguage.title}
@@ -156,103 +158,86 @@ function Data({ score, details }) {
                             thickBorder
                             isNumber
                         />
-                    )}
-                    {details.languageStats != null &&
+                    }
+                    {
+                        details.languageStats != null &&
                         details.languageStats.data != null &&
-                        details.languageStats.data.properNouns != null && (
-                            <StringIndicator
-                                value={INDICATORS.languageStats.toString(
-                                    details.languageStats.data.properNouns
-                                )}
-                                title={
-                                    INDICATORS.languageStats.data.properNouns
-                                        .title
-                                }
-                                description={
-                                    INDICATORS.languageStats.data.properNouns
-                                        .description
-                                }
-                                titleLeftPadding={true}
-                                isNumber
-                            />
-                        )}
-                    {details.languageStats != null &&
+                        details.languageStats.data.properNouns != null &&
+                        <StringIndicator
+                            value={INDICATORS.languageStats.toString(
+                                details.languageStats.data.properNouns
+                            )}
+                            title={INDICATORS.languageStats.data.properNouns.title}
+                            description={INDICATORS.languageStats.data.properNouns.description}
+                            titleLeftPadding
+                            isNumber
+                        />
+                    }
+                    {
+                        details.languageStats != null &&
                         details.languageStats.data != null &&
-                        details.languageStats.data.pronouns != null && (
-                            <StringIndicator
-                                value={INDICATORS.languageStats.toString(
-                                    details.languageStats.data.pronouns
-                                )}
-                                title={
-                                    INDICATORS.languageStats.data.pronouns.title
-                                }
-                                description={
-                                    INDICATORS.languageStats.data.pronouns
-                                        .description
-                                }
-                                titleLeftPadding={true}
-                                isNumber
-                            />
-                        )}
-                    {details.languageStats != null &&
+                        details.languageStats.data.pronouns != null &&
+                        <StringIndicator
+                            value={INDICATORS.languageStats.toString(
+                                details.languageStats.data.pronouns
+                            )}
+                            title={INDICATORS.languageStats.data.pronouns.title}
+                            description={INDICATORS.languageStats.data.pronouns.description}
+                            titleLeftPadding
+                            isNumber
+                        />
+                    }
+                    {
+                        details.languageStats != null &&
                         details.languageStats.data != null &&
-                        details.languageStats.data.adjectives != null && (
-                            <StringIndicator
-                                value={INDICATORS.languageStats.toString(
-                                    details.languageStats.data.adjectives
-                                )}
-                                title={
-                                    INDICATORS.languageStats.data.adjectives
-                                        .title
-                                }
-                                description={
-                                    INDICATORS.languageStats.data.adjectives
-                                        .description
-                                }
-                                titleLeftPadding={true}
-                                isNumber
-                            />
-                        )}
-                    {details.languageStats != null &&
+                        details.languageStats.data.adjectives != null &&
+                        <StringIndicator
+                            value={INDICATORS.languageStats.toString(
+                                details.languageStats.data.adjectives
+                            )}
+                            title={INDICATORS.languageStats.data.adjectives.title}
+                            description={INDICATORS.languageStats.data.adjectives.description}
+                            titleLeftPadding
+                            isNumber
+                        />
+                    }
+                    {
+                        details.languageStats != null &&
                         details.languageStats.data != null &&
-                        details.languageStats.data.adverbs != null && (
-                            <StringIndicator
-                                value={INDICATORS.languageStats.toString(
-                                    details.languageStats.data.adverbs
-                                )}
-                                title={
-                                    INDICATORS.languageStats.data.adverbs.title
-                                }
-                                description={
-                                    INDICATORS.languageStats.data.adverbs
-                                        .description
-                                }
-                                titleLeftPadding={true}
-                                isNumber
-                            />
-                        )}
-                    {details.tone != null && (
+                        details.languageStats.data.adverbs != null &&
+                        <StringIndicator
+                            value={INDICATORS.languageStats.toString(
+                                details.languageStats.data.adverbs
+                            )}
+                            title={INDICATORS.languageStats.data.adverbs.title}
+                            description={INDICATORS.languageStats.data.adverbs.description}
+                            titleLeftPadding
+                            isNumber
+                        />
+                    }
+                    {
+                        details.tone != null &&
                         <StringIndicator
                             value={details.tone.label}
                             title={INDICATORS.tone.title}
                             description={INDICATORS.tone.description}
                         />
-                    )}
-                    {details.offensiveLanguage != null && (
+                    }
+                    {
+                        details.offensiveLanguage != null &&
                         <StringIndicator
                             value={details.offensiveLanguage.label}
                             title={INDICATORS.offensiveLanguage.title}
-                            description={
-                                INDICATORS.offensiveLanguage.description
-                            }
+                            description={INDICATORS.offensiveLanguage.description}
                             color={INDICATORS.offensiveLanguage.scoreToColor(
                                 details.offensiveLanguage.score
                             )}
                             thickBorder
                             boldTitle
                         />
-                    )}
-                    {details.hateSpeech != null && (
+                    }
+                    {
+                        details.hateSpeech != null &&
                         <StringIndicator
                             value={details.hateSpeech.label}
                             title={INDICATORS.hateSpeech.title}
@@ -261,8 +246,9 @@ function Data({ score, details }) {
                                 details.hateSpeech.score
                             )}
                         />
-                    )}
-                    {details.readability != null && (
+                    }
+                    {
+                        details.readability != null &&
                         <StringIndicator
                             value={details.readability.score}
                             title={INDICATORS.readability.title}
@@ -270,8 +256,9 @@ function Data({ score, details }) {
                             description={INDICATORS.readability.description}
                             isNumber
                         />
-                    )}
-                    {details.clickbait != null && (
+                    }
+                    {
+                        details.clickbait != null &&
                         <StringIndicator
                             value={details.clickbait.label}
                             title={INDICATORS.clickbait.title}
@@ -280,62 +267,58 @@ function Data({ score, details }) {
                                 details.clickbait.score
                             )}
                         />
-                    )}
-                    {details.propagandaLikelihood != null && (
+                    }
+                    {
+                        details.propagandaLikelihood != null &&
                         <StringIndicator
                             value={details.propagandaLikelihood.label}
                             title={INDICATORS.propagandaLikelihood.title}
-                            description={
-                                INDICATORS.propagandaLikelihood.description
-                            }
+                            description={INDICATORS.propagandaLikelihood.description}
                             color={INDICATORS.propagandaLikelihood.scoreToColor(
                                 details.propagandaLikelihood.score
                             )}
                         />
-                    )}
-                    {details.externalReferences != null &&
-                        Array.isArray(details.externalReferences.data) && (
-                            <StringIndicator
-                                value={details.externalReferences.label}
-                                title={INDICATORS.externalReferences.title}
-                                description={
-                                    INDICATORS.externalReferences.description
-                                }
-                                color={INDICATORS.externalReferences.scoreToColor(
-                                    details.externalReferences.score
-                                )}
-                                thickBorder
-                                detailList={details.externalReferences.data}
-                            />
-                        )}
-                    {details.sourceDiversity != null &&
-                        Array.isArray(details.sourceDiversity.data) && (
-                            <StringIndicator
-                                value={details.sourceDiversity.label}
-                                title={INDICATORS.sourceDiversity.title}
-                                description={
-                                    INDICATORS.sourceDiversity.description
-                                }
-                                color={INDICATORS.sourceDiversity.scoreToColor(
-                                    details.sourceDiversity.score
-                                )}
-                                detailList={details.sourceDiversity.data}
-                            />
-                        )}
-                    {details.affiliatedLinks != null &&
-                        Array.isArray(details.affiliatedLinks.data) && (
-                            <StringIndicator
-                                value={details.affiliatedLinks.label}
-                                title={INDICATORS.affiliatedLinks.title}
-                                description={
-                                    INDICATORS.affiliatedLinks.description
-                                }
-                                color={INDICATORS.affiliatedLinks.scoreToColor(
-                                    details.affiliatedLinks.score
-                                )}
-                                detailList={details.affiliatedLinks.data}
-                            />
-                        )}
+                    }
+                    {
+                        details.externalReferences != null &&
+                        Array.isArray(details.externalReferences.data) &&
+                        <StringIndicator
+                            value={details.externalReferences.label}
+                            title={INDICATORS.externalReferences.title}
+                            description={INDICATORS.externalReferences.description}
+                            color={INDICATORS.externalReferences.scoreToColor(
+                                details.externalReferences.score
+                            )}
+                            thickBorder
+                            detailList={details.externalReferences.data}
+                        />
+                    }
+                    {
+                        details.sourceDiversity != null &&
+                        Array.isArray(details.sourceDiversity.data) &&
+                        <StringIndicator
+                            value={details.sourceDiversity.label}
+                            title={INDICATORS.sourceDiversity.title}
+                            description={INDICATORS.sourceDiversity.description}
+                            color={INDICATORS.sourceDiversity.scoreToColor(
+                                details.sourceDiversity.score
+                            )}
+                            detailList={details.sourceDiversity.data}
+                        />
+                    }
+                    {
+                        details.affiliatedLinks != null &&
+                        Array.isArray(details.affiliatedLinks.data) &&
+                        <StringIndicator
+                            value={details.affiliatedLinks.label}
+                            title={INDICATORS.affiliatedLinks.title}
+                            description={INDICATORS.affiliatedLinks.description}
+                            color={INDICATORS.affiliatedLinks.scoreToColor(
+                                details.affiliatedLinks.score
+                            )}
+                            detailList={details.affiliatedLinks.data}
+                        />
+                    }
                 </Indicators>
             </div>
         </div>
