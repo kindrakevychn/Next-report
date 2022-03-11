@@ -69,7 +69,7 @@ export default function Score({ score }) {
                 <div className={styles.scale}>
                     <div className={styles.labels}>
                         <span>{"Bad"}</span>
-                        <span>{"Good"}</span>
+                        <span>{"Perfect"}</span>
                     </div>
                 </div>
             </div>
