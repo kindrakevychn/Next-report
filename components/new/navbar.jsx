@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import clsx from "clsx";
 
 import buttonStyles from "../../styles/button.module.css";
