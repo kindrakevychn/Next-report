@@ -69,32 +69,43 @@ function Report({ data }) {
 }
 
 function Title({ articleTitle, articleURL }) {
-    const domain = new URL(articleURL).hostname;
+    articleTitle = articleTitle || 'Untitled';
+    articleURL = articleURL || '';
+
+    let domain = '';
+
+    try {
+        domain = new URL(articleURL).hostname;
+    } catch (error) {
+        console.error(error);
+    }
 
     return (
         <div>
             <div className={reportStyles.subTitle}>
                 {`Report for the ${domain} article:`}
             </div>
-            {articleTitle && (
-                <span className={reportStyles.articleTitle}>
-                    {articleURL ? (
-                        <a
-                            className={clsx(
-                                buttonStyles.button,
-                                reportStyles.articleLink
-                            )}
-                            href={articleURL}
-                            target={"_blank"}
-                            rel={"noreferrer noopener"}
-                        >
-                            {articleTitle}
-                        </a>
-                    ) : (
-                        articleTitle
-                    )}
-                </span>
-            )}
+
+            <span className={reportStyles.articleTitle}>
+                {
+                    articleURL &&
+                    <a
+                        className={clsx(
+                            buttonStyles.button,
+                            reportStyles.articleLink
+                        )}
+                        href={articleURL}
+                        target={"_blank"}
+                        rel={"noreferrer noopener"}
+                    >
+                        {articleTitle}
+                    </a>
+                }
+                {
+                    !articleURL &&
+                    articleTitle
+                }
+            </span>
         </div>
     );
 }

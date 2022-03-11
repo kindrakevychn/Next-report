@@ -8,7 +8,6 @@
   font-size: 1.75rem;
   font-weight: 500;
   color: #2379c4;
-
   width: 100%;
   clear: both;
   display: inline-block;
@@ -16,6 +15,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .col {
   display: flex;
   flex-direction: column;
