@@ -1,28 +1,14 @@
 .container {
-  width: 26rem;
+  width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #F4F6FF;
-  border-radius: 16px;
-  padding: 0 1.125rem;
-  border: 1px solid rgba(218, 218, 218, .4);
-}
-
-.text {
-  margin-right: 3.8rem;
-  user-select: none;
-  font-size: .875rem;
-  word-break: break-all;
+  justify-content: center;
+  background-color: #f4f6ff;
+  border-radius: 50%;
+  border: 1px solid rgba(218, 218, 218, 0.4);
 }
 
 .copy {
   display: flex;
-}
-
-@media only screen and (max-width: 425px) {
-  .container {
-    width: 100%;
-  }
 }

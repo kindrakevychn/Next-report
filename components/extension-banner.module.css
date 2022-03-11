@@ -2,22 +2,18 @@
   text-align: center;
   font-weight: 500;
   font-size: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.icons {
-  margin-top: .75rem;
+.container a {
+  color: #2379c4;
+  text-decoration: underline;
 }
 
-.icon {
-  width: 3rem;
-  height: auto;
-}
-
-.icon,
-.icon:hover {
-  transition: transform .15s linear;
-}
-
-.chrome:hover {
-  transform: rotate(360deg);
+@media only screen and (max-width: 660px) {
+  .container {
+    font-size: 1.25rem;
+  }
 }

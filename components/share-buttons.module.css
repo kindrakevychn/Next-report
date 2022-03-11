@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .button {
@@ -11,6 +11,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F4F6FF;
+  background-color: #f4f6ff;
   border-radius: 50%;
 }
