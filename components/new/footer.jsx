@@ -1,5 +1,3 @@
-import clsx from "clsx";
-
 import styles from "./footer.module.css";
 
 export default function Footer() {
