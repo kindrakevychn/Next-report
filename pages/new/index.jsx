@@ -224,6 +224,18 @@ function Data({ score, details }) {
                         />
                     }
                     {
+                        details.readability != null &&
+                        <StringIndicator
+                            value={details.readability.score}
+                            title={INDICATORS.readability.title}
+                            max={INDICATORS.readability.maxScore}
+                            description={INDICATORS.readability.description}
+                            isNumber
+                            boldTitle
+                            thickBorder
+                        />
+                    }
+                    {
                         details.offensiveLanguage != null &&
                         <StringIndicator
                             value={details.offensiveLanguage.label}
@@ -232,8 +244,6 @@ function Data({ score, details }) {
                             color={INDICATORS.offensiveLanguage.scoreToColor(
                                 details.offensiveLanguage.score
                             )}
-                            thickBorder
-                            boldTitle
                         />
                     }
                     {
@@ -245,16 +255,6 @@ function Data({ score, details }) {
                             color={INDICATORS.hateSpeech.scoreToColor(
                                 details.hateSpeech.score
                             )}
-                        />
-                    }
-                    {
-                        details.readability != null &&
-                        <StringIndicator
-                            value={details.readability.score}
-                            title={INDICATORS.readability.title}
-                            max={INDICATORS.readability.maxScore}
-                            description={INDICATORS.readability.description}
-                            isNumber
                         />
                     }
                     {
