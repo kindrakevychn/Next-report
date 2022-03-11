@@ -7,7 +7,8 @@ export default function ExtensionBanner() {
 
     return (
         <div className={styles.container}>
-            {"Want to see more? "}
+            {"Want to see more?"}
+            &nbsp;
             <a
                 title={"Install on Google Chrome"}
                 className={buttonStyles.button}
