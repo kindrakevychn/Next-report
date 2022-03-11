@@ -13,18 +13,17 @@ export default function CopyText({ text }) {
     }, [text]);
 
     return (
-        <div className={styles.container}>
-            <div
-                className={clsx(
-                    buttonStyles.button,
-                    disabled && buttonStyles.disabled,
-                    styles.copy
-                )}
-                title={"Copy"}
-                onClick={onClick}
-            >
-                <CopyIcon />
-            </div>
+        <div
+            className={clsx(
+                styles.container,
+                buttonStyles.button,
+                disabled && buttonStyles.disabled,
+                styles.copy
+            )}
+            title={"Copy"}
+            onClick={onClick}
+        >
+            <CopyIcon />
         </div>
     );
 }
