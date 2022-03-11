@@ -102,12 +102,12 @@ function Title({ articleTitle, articleURL }) {
 function Share({ articleTitle, score, reportURL }) {
     return (
         <div className={shareStyles.container}>
-            <CopyText text={reportURL} />
             <ShareButtons
                 articleTitle={articleTitle}
                 score={score}
                 reportURL={reportURL}
             />
+            <CopyText text={reportURL} />
         </div>
     );
 }
