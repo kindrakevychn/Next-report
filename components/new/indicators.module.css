@@ -50,6 +50,9 @@
 .row > .value {
   color: var(--color);
   text-transform: capitalize;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .value > span {
@@ -93,6 +96,5 @@
 
   .value {
     min-width: 5.5rem;
-    text-align: right;
   }
 }
