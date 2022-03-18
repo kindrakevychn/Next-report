@@ -48,6 +48,20 @@ export default class MyDocument extends Document {
                         href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700;900&display=swap'
                         rel='stylesheet'
                     />
+                    {/* GoSquared */}
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(arguments)}
+                            d=s.createElement(q);d.src='//d1l6p2sc9645hc.cloudfront.net/gosquared.js';q=
+                            s.getElementsByTagName(q)[0];q.parentNode.insertBefore(d,q)}(window,document
+                            ,'script','_gs');
+    
+                            _gs('GSN-546410-D');
+                            _gs('set', 'anonymizeIP', true);
+                            `,
+                        }}
+                    />
                 </Head>
 
                 <body>
