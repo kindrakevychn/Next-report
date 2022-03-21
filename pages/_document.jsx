@@ -59,6 +59,10 @@ export default class MyDocument extends Document {
     
                             _gs('GSN-546410-D');
                             _gs('set', 'anonymizeIP', true);
+                            _gs('set', 'trackParams', false);
+                            //_gs('set', 'trackLocal', true); // For local test
+
+                            _gs('track', '/report', 'Valurank Report');
                             `,
                         }}
                     />
