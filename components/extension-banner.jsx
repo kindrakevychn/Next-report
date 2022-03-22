@@ -15,6 +15,9 @@ export default function ExtensionBanner() {
                 href={chromeLink}
                 target={"_blank"}
                 rel={"noreferrer noopener"}
+                onClick={() =>
+                    _gs("event", `Clicked "Get the extension" (Bottom)`)
+                }
             >
                 {"Get the extension!"}
             </a>

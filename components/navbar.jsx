@@ -30,13 +30,13 @@ export default function Navbar() {
 
             <div className={styles.links}>
                 <a
-                    className={clsx(
-                        buttonStyles.button,
-                        styles.button
-                    )}
+                    className={clsx(buttonStyles.button, styles.button)}
                     href={link.url}
                     target={"_blank"}
                     rel={"noreferrer noopener"}
+                    onClick={() =>
+                        _gs("event", `Clicked "${link.text}" (Upper Right)`)
+                    }
                 >
                     {link.text}
                 </a>
