@@ -58,7 +58,7 @@ export default class MyDocument extends Document {
                             s.getElementsByTagName(q)[0];q.parentNode.insertBefore(d,q)}(window,document
                             ,'script','_gs');
 
-                            _gs('GSN-546410-D');
+                            _gs('GSN-546410-D', false);
                             _gs('set', 'anonymizeIP', true);
                             _gs('set', 'trackParams', false);
                             //_gs('set', 'trackLocal', true); // For local test
