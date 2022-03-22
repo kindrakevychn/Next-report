@@ -64,7 +64,7 @@ export default class MyDocument extends Document {
                             //_gs('set', 'trackLocal', true); // For local test
 
                             _gs('track', '/report', 'Valurank Report');
-                            `,
+                            `
                         }}
                     />
                 </Head>
