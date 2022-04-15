@@ -35,7 +35,7 @@ export default function Navbar() {
                     target={"_blank"}
                     rel={"noreferrer noopener"}
                     onClick={() =>
-                        _gs("event", `Clicked "${link.text}" (Upper Right)`)
+                        _gs("event", `Report: Clicked "Add to Chrome" (Top)`)
                     }
                 >
                     {link.text}
