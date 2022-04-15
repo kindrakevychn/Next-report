@@ -98,7 +98,7 @@ function Title({ articleTitle, articleURL }) {
                         href={articleURL}
                         target={"_blank"}
                         rel={"noreferrer noopener"}
-                        onClick={() => _gs("event", "Clicked Article Headline")}
+                        onClick={() => _gs("event", "Report: Clicked Article Headline")}
                     >
                         {articleTitle}
                     </a>
