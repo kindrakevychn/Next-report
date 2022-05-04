@@ -210,6 +210,15 @@ function Data({ score, details }) {
                         />
                     }
                     {
+                        details.textLanguage != null &&
+                        details.textLanguage.score >= 50 &&
+                        <StringIndicator
+                            value={details.textLanguage.label}
+                            title={INDICATORS.textLanguage.title}
+                            description={INDICATORS.textLanguage.description}
+                        />
+                    }
+                    {
                         details.readability != null &&
                         <StringIndicator
                             value={details.readability.score}
