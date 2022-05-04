@@ -8,7 +8,7 @@ export default function Footer() {
         },
         {
             text: "Terms & Conditions",
-            url: "https://chrome.google.com/webstore/detail/kkhcmgnlodakongllknldloammpmbpeg",
+            url: "https://valurank.com/privacypolicy",
         },
     ];
 
