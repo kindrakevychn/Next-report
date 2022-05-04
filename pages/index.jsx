@@ -258,6 +258,14 @@ function Data({ score, details }) {
                         />
                     }
                     {
+                        details.timeValue != null &&
+                        <StringIndicator
+                            value={details.timeValue.label}
+                            title={INDICATORS.timeValue.title}
+                            description={INDICATORS.timeValue.description}
+                        />
+                    }
+                    {
                         details.externalReferences != null &&
                         Array.isArray(details.externalReferences.data) &&
                         <StringIndicator
