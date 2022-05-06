@@ -15,16 +15,11 @@ export default function Navbar() {
         <header className={styles.container}>
             <div>
                 <div className={styles.title}>
-                    {"Valurank"}
-                    <span className={styles.logoContainer}>
-                        <img
-                            src={"/logo.svg"}
-                            alt={""}
-                            width={16}
-                            height={16}
-                            decoding={"async"}
-                        />
-                    </span>
+                    <img
+                        src={"/logo-text.svg"}
+                        alt={"ValuRank"}
+                        decoding={"async"}
+                    />
                 </div>
             </div>
 

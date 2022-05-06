@@ -11,7 +11,14 @@
 
 .title {
   display: flex;
-  font-size: 2.5rem;
+}
+
+.title img {
+  width: 11.875rem;
+  height: 2.8125rem;
+
+  /* For Alt text. */
+  font-size: 2.3rem;
   font-weight: 500;
   color: #2379c4;
   letter-spacing: 0.9px;
