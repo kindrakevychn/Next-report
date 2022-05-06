@@ -14,6 +14,7 @@
   - [Scripts](#scripts)
   - [How to make a release](#how-to-make-a-release)
   - [How to organize pull requests](#how-to-organize-pull-requests)
+  - [How to create OG images](#how-to-create-og-images)
 - [Version naming](#version-naming)
 
 ## Overview
@@ -73,6 +74,10 @@ Try to do frequent small releases instead of large infrequent ones.
 Try to make one PR per one logical change. Don't commit unconnected changes into one PR. Treat PR title as a line in changelog, it should help you to organize them properly.
 
 It is recommended to request review from project maintainers. If PR introduces complex changes, it is recommended to write description in PR conversation thread.
+
+### How to create OG images
+
+At the moment there is no tool that automates this process, so you need to create all OG images manually. Easiest way is to create necessary HTML template in the extension by modifying popup page, then open Developer Console (CTRL+SHIFT+C), select needed element to capture screenshot, open Commands (CTRL+SHIFT+P), search for "Capture node screenshot" and click on it. Toggle page zoom and modify CSS styles to achieve needed size, aspect ratio and style. There is a plans to automate this process using [puppeteer](https://github.com/puppeteer/puppeteer) or something similar.
 
 ## Version naming
 
