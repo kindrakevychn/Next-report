@@ -149,7 +149,7 @@ class MetaRewriter {
             return;
         }
 
-        const url = `https://r.valurank.com/og/${this.data.score}.jpg`;
+        const url = `https://r.valurank.com/og/${this.data.score}.png`;
 
         element.setAttribute('content', url);
     }
