@@ -94,7 +94,7 @@ class ReportDataWriter {
 
     end(end) {
         end.append(
-            `<script>var vlrnkReportData = ${JSON.stringify(this.data)};</script>`,
+            `<script>var vrReportData = ${JSON.stringify(this.data)};</script>`,
             {html: true}
         );
     }
