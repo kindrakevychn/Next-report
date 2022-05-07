@@ -116,7 +116,7 @@ function ArrowDown({ rotate }) {
                 rotate && styles.rotate
             )}
         >
-            <path d="M7 8L0.937822 0.5L13.0622 0.500001L7 8Z" fill="#2379C4" />
+            <path d="M7 8L0.937822 0.5L13.0622 0.500001L7 8Z" fill="#348FEA" />
         </svg>
     );
 }
