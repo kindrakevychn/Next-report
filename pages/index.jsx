@@ -154,6 +154,14 @@ function Data({ score, details }) {
                         />
                     }
                     {
+                        details.tone != null &&
+                        <StringIndicator
+                            value={details.tone.label}
+                            title={INDICATORS.tone.title}
+                            description={INDICATORS.tone.description}
+                        />
+                    }
+                    {
                         details.languageStats != null &&
                         details.languageStats.data != null &&
                         details.languageStats.data.properNouns != null &&
@@ -199,14 +207,6 @@ function Data({ score, details }) {
                             description={INDICATORS.languageStats.data.adverbs.description}
                             titleLeftPadding
                             isNumber
-                        />
-                    }
-                    {
-                        details.tone != null &&
-                        <StringIndicator
-                            value={details.tone.label}
-                            title={INDICATORS.tone.title}
-                            description={INDICATORS.tone.description}
                         />
                     }
                     {
