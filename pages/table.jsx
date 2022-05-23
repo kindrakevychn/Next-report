@@ -6,7 +6,6 @@ import { getReportData, INDICATORS } from "../lib/valurank";
 import dataStyles from "./data.module.css";
 
 export default function Index() {
-    const [error, setError] = useState("");
     const [reportData, setReportData] = useState(null);
 
     useEffect(() => {
@@ -15,7 +14,7 @@ export default function Index() {
         try {
             data = getReportData();
         } catch (error) {
-            setError(String(error));
+            console.error(error);
         }
 
         if (data) {
@@ -37,9 +36,8 @@ export default function Index() {
 }
 
 function Report({ data }) {
-    let { id, score, article, details } = data;
+    let { score, details } = data;
 
-    article = article || {};
     details = details || {};
 
     return <Data score={score} details={details} />;
