@@ -6,7 +6,7 @@ import {
     getContent
 } from '../lib/valurank';
 
-export async function onRequestGet({request, env, params, next}) {
+export async function onRequestGet({request, env, params, next, assetName}) {
     const url = new URL(request.url);
 
     // Let's treat such paths as static public files.
@@ -14,7 +14,7 @@ export async function onRequestGet({request, env, params, next}) {
         return next();
     }
 
-    const assetURL = new URL('/', request.url).toString();
+    const assetURL = new URL(assetName || '/', request.url).toString();
     const assetReq = new Request(assetURL, {
         cf: request.cf // https://github.com/cloudflare/wrangler2/issues/165#issuecomment-1010840734
     });
