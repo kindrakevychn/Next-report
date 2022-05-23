@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import Indicators, { StringIndicator } from "../components/indicators";
 import { getReportData, INDICATORS } from "../lib/valurank";
@@ -22,7 +23,17 @@ export default function Index() {
         }
     }, []);
 
-    return reportData && <Report data={reportData} />;
+    return (
+        <>
+            <Head>
+                <title>{"Valurank Report"}</title>
+            </Head>
+
+            <main>
+                {reportData && <Report data={reportData} />}
+            </main>
+        </>
+    );
 }
 
 function Report({ data }) {
