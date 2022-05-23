@@ -26,6 +26,13 @@ export default function Index() {
         <>
             <Head>
                 <title>{"Valurank Report"}</title>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        _gs('track', '/report/table', 'Report Table');
+                        `
+                    }}
+                />
             </Head>
 
             <main>

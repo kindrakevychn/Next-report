@@ -64,8 +64,6 @@ export default class MyDocument extends Document {
                             _gs('set', 'anonymizeIP', true);
                             _gs('set', 'trackParams', false);
                             //_gs('set', 'trackLocal', true); // For local test
-
-                            _gs('track', '/report', 'Report');
                             `
                         }}
                     />
