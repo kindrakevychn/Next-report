@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
                     <meta name='twitter:description' content={meta.description} />
                     <meta name='twitter:image' content={meta.image} />
 
-                    <link rel='icon' href='favicon.ico?v=1' type='image/x-icon' />
+                    <link rel='icon' href='/favicon.ico?v=1' type='image/x-icon' />
 
                     <link
                         rel='preconnect'
