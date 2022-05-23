@@ -54,7 +54,7 @@ export default function Index() {
     );
 }
 
-function Report({ data }) {
+export function Report({ data, onlyTable = false }) {
     let { id, score, article, details } = data;
 
     article = article || {};
@@ -63,6 +63,7 @@ function Report({ data }) {
     const reportURL = `${document.location.origin}/${id}`;
 
     return (
+        onlyTable ? <Data score={score} details={details} /> :
         <>
             <Title articleTitle={article.title} articleURL={article.url} />
             <Score score={score} />
